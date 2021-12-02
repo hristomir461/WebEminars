@@ -10,3 +10,16 @@ C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Models\obj\Debug\netstandar
 C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.CopyComplete
 C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.dll
 C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.pdb
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Models.deps.json
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Models.dll
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Models.pdb
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Common.dll
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Common.pdb
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.AssemblyReference.cache
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.GeneratedMSBuildEditorConfig.editorconfig
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.AssemblyInfoInputs.cache
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.AssemblyInfo.cs
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.CoreCompileInputs.cache
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.CopyComplete
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.dll
+H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.pdb

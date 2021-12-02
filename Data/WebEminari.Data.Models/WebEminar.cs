@@ -11,12 +11,13 @@ using WebEminari.Data.Common.Models;
 
 namespace WebEminari.Data.Models
 {
-   public class WebEminar : BaseDeletableModel<int>
+    public class WebEminar : BaseDeletableModel<int>
     {
 
         public WebEminar()
         {
             this.Votes = new HashSet<Vote>();
+            this.UserBookings = new HashSet<UserBooking>();
         }
 
         [Required]
@@ -54,5 +55,8 @@ namespace WebEminari.Data.Models
 
         public virtual ICollection<Vote> Votes { get; set; }
 
+        public virtual ICollection<UserBooking> UserBookings { get; set; }
+
     }
 }
+

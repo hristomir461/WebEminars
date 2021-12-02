@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Http;
-
+using WebEminari.Data.Models;
 using WebEminari.Web.ViewModels.WebEminars;
 
 namespace WebEminari.Services.Data
@@ -24,5 +25,6 @@ namespace WebEminari.Services.Data
         int GetCount();
 
         Task DeleteAsync(int id);
+        Task BookEvent(int eventId, ApplicationUser user);
     }
 }

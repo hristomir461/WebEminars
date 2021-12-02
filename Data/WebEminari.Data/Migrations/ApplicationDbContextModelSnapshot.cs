@@ -310,6 +310,21 @@ namespace WebEminari.Data.Migrations
                     b.ToTable("Settings");
                 });
 
+            modelBuilder.Entity("WebEminari.Data.Models.UserBooking", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("WebEminarId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "WebEminarId");
+
+                    b.HasIndex("WebEminarId");
+
+                    b.ToTable("UserBooking");
+                });
+
             modelBuilder.Entity("WebEminari.Data.Models.Vote", b =>
                 {
                     b.Property<int>("Id")
@@ -453,6 +468,25 @@ namespace WebEminari.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("WebEminari.Data.Models.UserBooking", b =>
+                {
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", "User")
+                        .WithMany("UserBookings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WebEminari.Data.Models.WebEminar", "WebEminar")
+                        .WithMany("UserBookings")
+                        .HasForeignKey("WebEminarId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("WebEminar");
+                });
+
             modelBuilder.Entity("WebEminari.Data.Models.Vote", b =>
                 {
                     b.HasOne("WebEminari.Data.Models.ApplicationUser", "User")
@@ -495,6 +529,8 @@ namespace WebEminari.Data.Migrations
 
                     b.Navigation("Roles");
 
+                    b.Navigation("UserBookings");
+
                     b.Navigation("Votes");
                 });
 
@@ -505,6 +541,8 @@ namespace WebEminari.Data.Migrations
 
             modelBuilder.Entity("WebEminari.Data.Models.WebEminar", b =>
                 {
+                    b.Navigation("UserBookings");
+
                     b.Navigation("Votes");
                 });
 #pragma warning restore 612, 618

@@ -18,7 +18,10 @@ namespace WebEminari.Web.ViewModels.WebEminars
     {
         public int Id { get; set; }
 
+        [Required, MinLength(4, ErrorMessage = "Minlenght Problem")]
         public string Title { get; set; }
+
+        public ICollection<string> UsersBooked { get; set; }
 
         public string CategoryName { get; set; }
 
@@ -26,6 +29,7 @@ namespace WebEminari.Web.ViewModels.WebEminars
 
         public int MaxPeople { get; set; }
 
+        [Required(ErrorMessage = "Immage is mandatory!")]
         public IFormFile Image { get; set; }
 
         public string Description { get; set; }
@@ -50,7 +54,22 @@ namespace WebEminari.Web.ViewModels.WebEminars
         {
             configuration.CreateMap<WebEminar, WebEminarViewModel>()
                    .ForMember(x => x.AverageVote, opt =>
-                    opt.MapFrom(x => x.Votes.Count == 0 ? 0 : x.Votes.Average(v => v.Value)));
+                    opt.MapFrom(x => x.Votes.Count == 0 ? 0 : x.Votes.Average(v => v.Value)))
+                   .ForMember(x => x.UsersBooked, opt =>
+                      opt.MapFrom(x => x.UserBookings.Select(y => y.User.UserName)));
         }
     }
+
+
+
+[AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
+    sealed public class EitherOneVal : ValidationAttribute
+    {
+ 
+
+    }
+
+
+
+
 }

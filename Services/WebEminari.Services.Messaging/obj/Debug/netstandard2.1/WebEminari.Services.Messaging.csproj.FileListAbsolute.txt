@@ -7,3 +7,13 @@ C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug
 C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csproj.CoreCompileInputs.cache
 C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
 C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.deps.json
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csproj.AssemblyReference.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.AssemblyInfoInputs.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.AssemblyInfo.cs
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csproj.CoreCompileInputs.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
+H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb

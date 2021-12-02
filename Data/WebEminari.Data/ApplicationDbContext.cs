@@ -88,7 +88,10 @@
 
         // Applies configurations
         private void ConfigureUserIdentityRelations(ModelBuilder builder)
-             => builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+        {
+            builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+            builder.Entity<UserBooking>().HasKey(x => new { x.UserId, x.WebEminarId });
+        }
 
         private void ApplyAuditInfoRules()
         {

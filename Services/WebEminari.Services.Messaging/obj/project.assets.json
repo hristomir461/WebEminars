@@ -2788,28 +2788,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\icaka\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Baron Samedi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\icaka\\source\\WebEminar\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
+      "projectUniqueName": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
       "projectName": "WebEminari.Services.Messaging",
-      "projectPath": "C:\\Users\\icaka\\source\\WebEminar\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
-      "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\icaka\\source\\WebEminar\\Services\\WebEminari.Services.Messaging\\obj\\",
+      "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
+      "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
+      "outputPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
@@ -2860,7 +2857,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,14 +1,22 @@
-﻿@model WebEminari.Web.ViewModels.WebEminars.WebEminarViewModel
+﻿@model WebEminarViewModel
 @{
     this.ViewData["Title"] = Model.Title;
+    int maxStars = 5;
+    bool isLoggedIn = User.Identity.IsAuthenticated;
+    bool userCanBook = isLoggedIn && !Model.UsersBooked.Contains(User.Identity.Name);
 }
+
 <p>От: @Model.AddedByUserFirstName @Model.AddedByUserLastName</p>
 <ul class="item-rating">
-    <li class="star-fill" data-vote="1"><i class="fas fa-star"></i></li>
-    <li class="star-fill" data-vote="2"><i class="fas fa-star"></i></li>
-    <li class="star-fill" data-vote="3"><i class="fas fa-star"></i></li>
-    <li class="star-fill" data-vote="4"><i class="fas fa-star"></i></li>
-    <li class="star-fill" data-vote="5"><i class="fas fa-star"></i></li>
+    @for (int i = 1; i <= (int)Model.AverageVote; i++)
+    {
+        <li class="star-fill" data-vote="@i"><i class="fas fa-star"></i></li>
+    }
+    @for (int i = 1; i <= maxStars - (int)Model.AverageVote; i++)
+    {
+        <li data-vote="@i"><i class="fas fa-star"></i></li>
+    }
+
     <li>
         <span style="padding-left: 5px;" id="averageVoteValue">
             @if (Model.AverageVote % 1 == 0)
@@ -19,7 +27,7 @@
             {
                 @Model.AverageVote.ToString("0.0")
             }
-        </span><span> / 5</span>
+        </span><span> / @maxStars</span>
     </li>
 </ul>
 <br />
@@ -32,7 +40,10 @@
 <h4>Дата: @Model.DateTime.ToShortDateString()</h4>
 <h4>Час: @Model.DateTime.ToShortTimeString()</h4>
 <h4>Час: @Model.CategoryName</h4>
-<h4>Meet Link: @Model.MeetLink</h4>
+@if (isLoggedIn)
+{
+    <h4>Meet Link: @Model.MeetLink</h4>
+}
 <h4>Aveilable bookings: @Model.MaxPeople</h4>
 <style>
     ul li.star-fill i {
@@ -49,7 +60,16 @@
         float: left;
     }
 </style>
-<form method="post" id="antiForgeryForm"></form>
+@if (userCanBook)
+{
+<form method="post" id="antiForgeryForm" asp-action="BookForEvent">
+    <input type="hidden" name="EventId" value="@Model.Id" />
+
+    <button class="btn btn-primary">Book for Event</button>
+</form>
+}
+
+
 @section Scripts {
     <script>
 

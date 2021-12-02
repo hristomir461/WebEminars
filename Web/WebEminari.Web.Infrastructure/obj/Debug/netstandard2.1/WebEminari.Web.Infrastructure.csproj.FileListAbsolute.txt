@@ -7,3 +7,13 @@ C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\nets
 C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
 C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb
 C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csprojAssemblyReference.cache
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.deps.json
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csproj.AssemblyReference.cache
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.AssemblyInfoInputs.cache
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.AssemblyInfo.cs
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csproj.CoreCompileInputs.cache
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
+H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using WebEminari.Data;
 using WebEminari.Data.Models;
 using WebEminari.Services.Data;
@@ -81,7 +81,7 @@ namespace WebEminari.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Create(WebEminarViewModel input)
         {
-            if (!this.ModelState.IsValid)
+            if (!this.ModelState.IsValid || input.Image == null)
             {
                 input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
 
@@ -110,7 +110,7 @@ namespace WebEminari.Web.Controllers
             var inputModel = this.webEminarService.GetById<WebEminarViewModel>(id);
 
             inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
-           
+
             return this.View(inputModel);
         }
 
@@ -118,14 +118,19 @@ namespace WebEminari.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, WebEminarViewModel input)
         {
+            //  this.ModelState["Image"].Errors.Clear();
+            this.ModelState["Image"].ValidationState = ModelValidationState.Valid;
             if (!this.ModelState.IsValid)
             {
                 input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
-
                 return this.View(input);
             }
-  
-            string stringFile = this.UploadFile(input);
+
+            string stringFile = input.ImageName;
+            if (input.Image != null)
+            {
+                stringFile = this.UploadFile(input);
+            }
 
             await this.webEminarService.UpdateAsync(id, input, stringFile);
 
@@ -156,5 +161,20 @@ namespace WebEminari.Web.Controllers
 
             return fileName;
         }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> BookForEvent(int eventId)
+        {
+            await this.webEminarService.BookEvent(eventId, await this.userManager.GetUserAsync(this.User));
+            return this.RedirectToAction("ById", new { id = eventId });
+        }
     }
+
+    //public class BookingDTOin
+    //{
+    //    public string UserId { get; set; }
+    //   [System.ComponentModel.DataAnnotations.Required]
+    //    public int EventId { get; set; }
+    //}
 }

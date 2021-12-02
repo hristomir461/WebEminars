@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "TOXD82nUFardobCcmFfgefYiiSQ20pZx28Si2vNo5NPIxQ3Use8Yo41FZ7MiRPKLQcAtSx3aXv4sFyDJ4SvXoQ==",
+  "dgSpecHash": "w454Z0SU5l2TxGW7nm0TyCvweyh3Tk5P0cW3Rq0HiW3ZyAbIlVU/MxaIExuycJ/tYBvpWH46kZ+EU7wMOkXP8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\icaka\\source\\WebEminar\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj",
+  "projectFilePath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\icaka\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
-    "C:\\Users\\icaka\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\icaka\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
-    "C:\\Users\\icaka\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512",
-    "C:\\Users\\icaka\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+    "C:\\Users\\Baron Samedi\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Baron Samedi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Baron Samedi\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\Baron Samedi\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512",
+    "C:\\Users\\Baron Samedi\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

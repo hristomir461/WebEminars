@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -96,7 +97,10 @@ namespace WebEminari.Services.Data
             webEminar.MaxPeople = input.MaxPeople;
             webEminar.DateTime = input.DateTime;
             webEminar.MeetLink = input.MeetLink;
-            webEminar.ImageName = ImageName;
+            if (!string.IsNullOrEmpty(ImageName))
+            {
+                webEminar.ImageName = ImageName;
+            }
 
             await this.webEminarRepository.SaveChangesAsync();
         }
@@ -112,6 +116,23 @@ namespace WebEminari.Services.Data
                 .ToList();
         }
 
-     
+        public async Task BookEvent(int eventId, ApplicationUser user)
+        {
+            WebEminar eventFd = this.webEminarRepository.All().FirstOrDefault(x => x.Id == eventId);
+
+            if (eventFd == null)
+            {
+                return;
+                throw new ApplicationException("EventNotFound");
+            }
+            if (eventFd.MaxPeople < 0)
+            {
+                return;
+                throw new ApplicationException("Not enough room");
+            }
+            eventFd.MaxPeople--;
+            eventFd.UserBookings.Add(new UserBooking(user.Id, eventId));
+            await this.webEminarRepository.SaveChangesAsync();
+        }
     }
 }

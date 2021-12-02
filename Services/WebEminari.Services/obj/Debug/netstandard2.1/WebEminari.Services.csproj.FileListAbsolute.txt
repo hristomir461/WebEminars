@@ -7,3 +7,13 @@ C:\Users\icaka\source\WebEminar\Services\WebEminari.Services\obj\Debug\netstanda
 C:\Users\icaka\source\WebEminar\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.dll
 C:\Users\icaka\source\WebEminar\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.pdb
 C:\Users\icaka\source\WebEminar\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.csprojAssemblyReference.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services\bin\Debug\netstandard2.1\WebEminari.Services.deps.json
+H:\Hristomir\WebEminars\Services\WebEminari.Services\bin\Debug\netstandard2.1\WebEminari.Services.dll
+H:\Hristomir\WebEminars\Services\WebEminari.Services\bin\Debug\netstandard2.1\WebEminari.Services.pdb
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.csproj.AssemblyReference.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.GeneratedMSBuildEditorConfig.editorconfig
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.AssemblyInfoInputs.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.AssemblyInfo.cs
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.csproj.CoreCompileInputs.cache
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.dll
+H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.pdb
