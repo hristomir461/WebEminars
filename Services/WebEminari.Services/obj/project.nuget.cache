@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "u3XdChpG7cSs3TCNaajm8jXsx5DWKN+6EkMyWWDFlVbiNsUno5gctSx43UAgqd970kgUhjUU849L/WhO4/YeFQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\icaka\\source\\WebEminar\\Services\\WebEminari.Services\\WebEminari.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\icaka\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\icaka\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"
+  ],
+  "logs": []
+}

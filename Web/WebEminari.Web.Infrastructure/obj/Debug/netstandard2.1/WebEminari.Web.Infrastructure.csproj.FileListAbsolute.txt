@@ -1,0 +1,9 @@
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.deps.json
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.AssemblyInfo.cs
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb
+C:\Users\icaka\source\WebEminar\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csprojAssemblyReference.cache

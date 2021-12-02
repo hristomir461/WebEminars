@@ -1,0 +1,9 @@
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\bin\Debug\netstandard2.1\WebEminari.Data.Common.deps.json
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\bin\Debug\netstandard2.1\WebEminari.Data.Common.dll
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\bin\Debug\netstandard2.1\WebEminari.Data.Common.pdb
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\obj\Debug\netstandard2.1\WebEminari.Data.Common.AssemblyInfoInputs.cache
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\obj\Debug\netstandard2.1\WebEminari.Data.Common.AssemblyInfo.cs
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\obj\Debug\netstandard2.1\WebEminari.Data.Common.csproj.CoreCompileInputs.cache
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\obj\Debug\netstandard2.1\WebEminari.Data.Common.dll
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\obj\Debug\netstandard2.1\WebEminari.Data.Common.pdb
+C:\Users\icaka\source\WebEminar\Data\WebEminari.Data.Common\obj\Debug\netstandard2.1\WebEminari.Data.Common.csprojAssemblyReference.cache

@@ -1,0 +1,9 @@
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.deps.json
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csprojAssemblyReference.cache
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.AssemblyInfoInputs.cache
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.AssemblyInfo.cs
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
+C:\Users\icaka\source\WebEminar\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb

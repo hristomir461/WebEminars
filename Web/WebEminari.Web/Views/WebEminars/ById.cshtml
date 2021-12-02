@@ -1,0 +1,78 @@
+﻿@model WebEminari.Web.ViewModels.WebEminars.WebEminarViewModel
+@{
+    this.ViewData["Title"] = Model.Title;
+}
+<p>От: @Model.AddedByUserFirstName @Model.AddedByUserLastName</p>
+<ul class="item-rating">
+    <li class="star-fill" data-vote="1"><i class="fas fa-star"></i></li>
+    <li class="star-fill" data-vote="2"><i class="fas fa-star"></i></li>
+    <li class="star-fill" data-vote="3"><i class="fas fa-star"></i></li>
+    <li class="star-fill" data-vote="4"><i class="fas fa-star"></i></li>
+    <li class="star-fill" data-vote="5"><i class="fas fa-star"></i></li>
+    <li>
+        <span style="padding-left: 5px;" id="averageVoteValue">
+            @if (Model.AverageVote % 1 == 0)
+            {
+                @Model.AverageVote
+            }
+            else
+            {
+                @Model.AverageVote.ToString("0.0")
+            }
+        </span><span> / 5</span>
+    </li>
+</ul>
+<br />
+<br />
+<center>
+    <h1>@Model.Title</h1>
+    <img src="~/Images/@Model.ImageName" width="400" asp-append-version="true" />
+    <p style="font-size: 20px">@Model.Description</p>
+</center>
+<h4>Дата: @Model.DateTime.ToShortDateString()</h4>
+<h4>Час: @Model.DateTime.ToShortTimeString()</h4>
+<h4>Час: @Model.CategoryName</h4>
+<h4>Meet Link: @Model.MeetLink</h4>
+<h4>Aveilable bookings: @Model.MaxPeople</h4>
+<style>
+    ul li.star-fill i {
+        color: orange;
+    }
+
+    ul {
+        list-style-type: none;
+        float: right;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+    }
+</style>
+<form method="post" id="antiForgeryForm"></form>
+@section Scripts {
+    <script>
+
+            $("li[data-vote]").each(function (el) {
+                $(this).click(function () {
+                    var value = $(this).attr("data-vote");
+                    var webEminarId = @Model.Id;
+                    var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+                    var data = { webEminarId: webEminarId, value: value };
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/Votes",
+                        data: JSON.stringify(data),
+                        headers: {
+                            'X-CSRF-TOKEN': antiForgeryToken
+                        },
+                        success: function (data) {
+                            $('#averageVoteValue').html(data.averageVote % 1 == 0 ? data.averageVote : data.averageVote.toFixed(1));
+                        },
+                        contentType: 'application/json',
+                    });
+                })
+            });
+    </script>
+}
+

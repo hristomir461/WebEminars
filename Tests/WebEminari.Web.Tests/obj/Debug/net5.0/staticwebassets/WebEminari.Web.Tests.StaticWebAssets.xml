@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/Identity" Path="C:\Users\icaka\.nuget\packages\microsoft.aspnetcore.identity.ui\5.0.12\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/WebEminari.Web" Path="C:\Users\icaka\source\WebEminar\Web\WebEminari.Web\wwwroot\" />
+</StaticWebAssets>
