@@ -16,3 +16,12 @@ H:\Hristomir\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Co
 H:\Hristomir\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.csproj.CoreCompileInputs.cache
 H:\Hristomir\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.dll
 H:\Hristomir\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.pdb
+D:\Projects\WebEminars\WebEminari.Common\bin\Debug\netstandard2.1\WebEminari.Common.deps.json
+D:\Projects\WebEminars\WebEminari.Common\bin\Debug\netstandard2.1\WebEminari.Common.dll
+D:\Projects\WebEminars\WebEminari.Common\bin\Debug\netstandard2.1\WebEminari.Common.pdb
+D:\Projects\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.csprojAssemblyReference.cache
+D:\Projects\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.AssemblyInfoInputs.cache
+D:\Projects\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.AssemblyInfo.cs
+D:\Projects\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.csproj.CoreCompileInputs.cache
+D:\Projects\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.dll
+D:\Projects\WebEminars\WebEminari.Common\obj\Debug\netstandard2.1\WebEminari.Common.pdb

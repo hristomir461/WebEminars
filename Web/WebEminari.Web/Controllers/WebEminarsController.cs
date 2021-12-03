@@ -49,20 +49,22 @@ namespace WebEminari.Web.Controllers
             return this.View(items);
         }
 
-        public IActionResult All(int id = 1)
+        public IActionResult All(int categoryId, string searchString, int id = 1)
         {
             if (id <= 0)
             {
                 return this.NotFound();
             }
-
+            
             var viewModel = new WebEminarsListViewModel()
             {
                 PageNumber = id,
-                WebEminars = this.webEminarService.GetAll<WebEminarsInListViewModel>(id, ItemsPerPage),
+                WebEminars = this.webEminarService.GetAll<WebEminarsInListViewModel>(id, ItemsPerPage, searchString, categoryId),
                 WebEminarsCount = this.webEminarService.GetCount(),
                 ItemsPerPage = ItemsPerPage,
-            };
+                SearchText = searchString,
+                CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs(),
+        };
 
             return this.View(viewModel);
         }
@@ -107,11 +109,20 @@ namespace WebEminari.Web.Controllers
         [Authorize]
         public IActionResult Edit(int id)
         {
-            var inputModel = this.webEminarService.GetById<WebEminarViewModel>(id);
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var items = this.context.WebEminars;
+            if(items.Any(webEminar => webEminar.AddedByUserId == userId))
+            {
+                var inputModel = this.webEminarService.GetById<WebEminarViewModel>(id);
 
-            inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+                inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
 
-            return this.View(inputModel);
+                return this.View(inputModel);
+            }
+            else
+            {
+                throw new ApplicationException();
+            }
         }
 
         [Authorize]

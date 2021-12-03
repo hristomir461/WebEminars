@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "6w5QTMlSbv6345CI/LbqQ72KOLvo744THCs6vrqWyHeV5MpBnuM1aOMjFzL7iUdJ2MlaFsNzDbanoWbylg3LIg==",
+  "dgSpecHash": "Kk1jRnCCjcP3CAdv+iUyMhC7mICAfCOX/f2A7if7wdQvCYVS+Tj4Hj4BBTpVHInhpooVSjEY9rTRttx5LR941Q==",
   "success": true,
-  "projectFilePath": "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj",
+  "projectFilePath": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Baron Samedi\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
-    "C:\\Users\\Baron Samedi\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"
+    "C:\\Users\\icaka\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\icaka\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"
   ],
   "logs": []
 }

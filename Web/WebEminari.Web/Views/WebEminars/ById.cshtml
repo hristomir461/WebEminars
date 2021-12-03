@@ -3,7 +3,7 @@
     this.ViewData["Title"] = Model.Title;
     int maxStars = 5;
     bool isLoggedIn = User.Identity.IsAuthenticated;
-    bool userCanBook = isLoggedIn && !Model.UsersBooked.Contains(User.Identity.Name);
+    bool userCanBook = isLoggedIn && !Model.UsersBooked.Contains(User.Identity.Name) && Model.MaxPeople > 0;
 }
 
 <p>От: @Model.AddedByUserFirstName @Model.AddedByUserLastName</p>
@@ -35,12 +35,12 @@
 <center>
     <h1>@Model.Title</h1>
     <img src="~/Images/@Model.ImageName" width="400" asp-append-version="true" />
-    <p style="font-size: 20px">@Model.Description</p>
+    <p style="font-size: 20px">@Html.Raw(Model.Description)</p>
 </center>
 <h4>Дата: @Model.DateTime.ToShortDateString()</h4>
 <h4>Час: @Model.DateTime.ToShortTimeString()</h4>
 <h4>Час: @Model.CategoryName</h4>
-@if (isLoggedIn)
+@if (Model.UsersBooked.Contains(User.Identity.Name))
 {
     <h4>Meet Link: @Model.MeetLink</h4>
 }

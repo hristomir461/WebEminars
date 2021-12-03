@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj": {}
+    "D:\\Projects\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj": {}
   },
   "projects": {
-    "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
+    "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj",
         "projectName": "WebEminari.Data.Common",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -70,26 +72,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
+    "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj",
         "projectName": "WebEminari.Data.Models",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -102,8 +106,8 @@
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
               }
             }
           }
@@ -152,26 +156,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj": {
+    "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj",
         "projectName": "WebEminari.Data",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -184,14 +190,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj"
+              "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj"
               }
             }
           }
@@ -252,26 +258,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj": {
+    "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj",
         "projectName": "WebEminari.Services.Data",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Data\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -284,17 +292,17 @@
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
+              "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj"
+              "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj"
               }
             }
           }
@@ -331,26 +339,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
+    "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj",
         "projectName": "WebEminari.Services.Mapping",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -401,26 +411,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj": {
+    "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
         "projectName": "WebEminari.Services.Messaging",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Messaging\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -471,26 +483,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj": {
+    "D:\\Projects\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj",
         "projectName": "WebEminari.Services",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -537,26 +551,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
+    "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj",
         "projectName": "WebEminari.Common",
-        "projectPath": "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\WebEminari.Common\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\WebEminari.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -603,26 +619,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj": {
+    "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj",
         "projectName": "WebEminari.Web.Infrastructure",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -669,26 +687,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj": {
+    "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj",
         "projectName": "WebEminari.Web.ViewModels",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -701,11 +721,11 @@
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
+              "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
               }
             }
           }
@@ -746,26 +766,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj": {
+    "D:\\Projects\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj",
+        "projectUniqueName": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj",
         "projectName": "WebEminari.Web",
-        "projectPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj",
-        "packagesPath": "C:\\Users\\Baron Samedi\\.nuget\\packages\\",
-        "outputPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web\\obj\\",
+        "projectPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web\\WebEminari.Web.csproj",
+        "packagesPath": "C:\\Users\\icaka\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Baron Samedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\icaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -778,32 +800,32 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj"
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj"
+              "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Data\\WebEminari.Services.Data.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
+              "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj"
+              "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Messaging\\WebEminari.Services.Messaging.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj"
+              "D:\\Projects\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services\\WebEminari.Services.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj"
+              "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj"
+              "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.Infrastructure\\WebEminari.Web.Infrastructure.csproj"
               },
-              "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj": {
-                "projectPath": "H:\\Hristomir\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj"
+              "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Web\\WebEminari.Web.ViewModels\\WebEminari.Web.ViewModels.csproj"
               }
             }
           }
@@ -881,7 +903,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

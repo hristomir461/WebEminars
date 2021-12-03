@@ -34,8 +34,9 @@ namespace WebEminari.Data.Models
         [MaxLength(600)]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Url is required")]
         [MaxLength(50)]
+        [Url]
         public string MeetLink { get; set; }
 
         [Required]

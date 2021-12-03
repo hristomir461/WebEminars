@@ -1,9 +1,24 @@
 ﻿@model WebEminari.Web.ViewModels.WebEminars.WebEminarsListViewModel
 @{
     this.ViewData["Title"] = "WebEminars";
+    var categoryItems = this.Model.CategoriesItems.Select(x => new SelectListItem(x.Value, x.Key));
 }
 <h1>@this.ViewData["Title"]</h1>
-<hr/>
+<hr />
+<form asp-controller="WebEminars" asp-action="All" method="get">
+    <p>
+        <select asp-for="@Model.CategoryId" asp-items="categoryItems">
+            <option value="0">All</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<form asp-controller="WebEminars" asp-action="All" method="get">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <div class="row">
     @foreach (var webEminar in this.Model.WebEminars)
     {
@@ -15,7 +30,6 @@
             </h5>
             <img class="card-img-top" src="~/Images/@webEminar.ImageName" width="100" height="300" alt="Card image cap">
             <div class="card-body">
-                <p class="card-text text-center">@webEminar.Description.Substring(0, @webEminar.Description.Length >= 30 ? 30 : @webEminar.Description.Length)</p>
                 <p class="card-text text-center">@webEminar.CategoryName</p>
                 <p class="card-text text-center"><small class="text-muted">@webEminar.DateTime.ToShortDateString() @webEminar.DateTime.ToShortTimeString()</small></p>
             </div>

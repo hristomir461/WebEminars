@@ -17,3 +17,12 @@ H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2
 H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csproj.CoreCompileInputs.cache
 H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
 H:\Hristomir\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.deps.json
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\bin\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csprojAssemblyReference.cache
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.AssemblyInfo.cs
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.dll
+D:\Projects\WebEminars\Web\WebEminari.Web.Infrastructure\obj\Debug\netstandard2.1\WebEminari.Web.Infrastructure.pdb

@@ -16,7 +16,7 @@ namespace WebEminari.Services.Data
 
         T GetById<T>(int id);
 
-        IEnumerable<T> GetAll<T>(int page, int itemsPerPage);
+        IEnumerable<T> GetAll<T>(int page, int itemsPerPage, string searchString, int categoryId);
 
         IEnumerable<T> GetRandom<T>(int count);
 

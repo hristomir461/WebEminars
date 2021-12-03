@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                <textarea asp-for="Description" id="editor"></textarea>
             </div>
             <div class="form-group">
                 <label asp-for="MeetLink" class="control-label"></label>
@@ -56,4 +56,10 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+@section Scripts{
+    <script src="~/ckeditor/ckeditor.js"></script>
 
+    <script>
+        CKEDITOR.replace("editor");
+    </script>
+}

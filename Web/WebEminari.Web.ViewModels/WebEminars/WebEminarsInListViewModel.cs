@@ -13,6 +13,12 @@ namespace WebEminari.Web.ViewModels.WebEminars
 
         public string Title { get; set; }
 
+        public string MeetLink { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
         public string AddedByUserId { get; set; }
 
         public string ImageName { get; set; }

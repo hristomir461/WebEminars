@@ -17,3 +17,12 @@ H:\Hristomir\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstanda
 H:\Hristomir\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.csproj.CoreCompileInputs.cache
 H:\Hristomir\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.dll
 H:\Hristomir\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.pdb
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\bin\Debug\netstandard2.1\WebEminari.Services.Mapping.deps.json
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\bin\Debug\netstandard2.1\WebEminari.Services.Mapping.dll
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\bin\Debug\netstandard2.1\WebEminari.Services.Mapping.pdb
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.csprojAssemblyReference.cache
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.AssemblyInfoInputs.cache
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.AssemblyInfo.cs
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.csproj.CoreCompileInputs.cache
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.dll
+D:\Projects\WebEminars\Services\WebEminari.Services.Mapping\obj\Debug\netstandard2.1\WebEminari.Services.Mapping.pdb

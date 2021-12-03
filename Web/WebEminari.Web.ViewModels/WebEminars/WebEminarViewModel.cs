@@ -34,9 +34,14 @@ namespace WebEminari.Web.ViewModels.WebEminars
 
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Url is required")]
+        [MaxLength(50)]
+        [Url]
         public string MeetLink { get; set; }
 
         public DateTime DateTime { get; set; }
+
+        public string SearchString { get; set; }
 
         public string AddedByUserEmail { get; set; }
 

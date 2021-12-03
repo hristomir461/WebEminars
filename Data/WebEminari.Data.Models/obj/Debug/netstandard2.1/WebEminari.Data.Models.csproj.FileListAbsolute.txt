@@ -23,3 +23,15 @@ H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\Web
 H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.CopyComplete
 H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.dll
 H:\Hristomir\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.pdb
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Models.deps.json
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Models.dll
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Models.pdb
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Common.dll
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\bin\Debug\netstandard2.1\WebEminari.Data.Common.pdb
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csprojAssemblyReference.cache
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.AssemblyInfoInputs.cache
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.AssemblyInfo.cs
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.CoreCompileInputs.cache
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.csproj.CopyComplete
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.dll
+D:\Projects\WebEminars\Data\WebEminari.Data.Models\obj\Debug\netstandard2.1\WebEminari.Data.Models.pdb

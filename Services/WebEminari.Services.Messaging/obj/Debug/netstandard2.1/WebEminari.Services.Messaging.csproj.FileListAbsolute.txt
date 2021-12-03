@@ -17,3 +17,12 @@ H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstan
 H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csproj.CoreCompileInputs.cache
 H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
 H:\Hristomir\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.deps.json
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\bin\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csprojAssemblyReference.cache
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.AssemblyInfoInputs.cache
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.AssemblyInfo.cs
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.csproj.CoreCompileInputs.cache
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.dll
+D:\Projects\WebEminars\Services\WebEminari.Services.Messaging\obj\Debug\netstandard2.1\WebEminari.Services.Messaging.pdb

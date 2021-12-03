@@ -65,8 +65,19 @@ namespace WebEminari.Services.Data
                 .SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage)
+        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage, string searchString, int categoryName)
         {
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var webEminarsSearch = this.webEminarRepository.AllAsNoTracking().Where(s => s.Title!.Contains(searchString)).OrderByDescending(r => r.Id).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).To<T>().ToList();
+                return webEminarsSearch;
+            }
+            if (categoryName != null && categoryName != 0)
+            {
+                var webEminarsSearch = this.webEminarRepository.AllAsNoTracking().Where(s => s.CategoryId == categoryName).OrderByDescending(r => r.Id).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).To<T>().ToList();
+                return webEminarsSearch;
+            }
             var webEminars = this.webEminarRepository
                .AllAsNoTracking()
                .OrderByDescending(r => r.Id)
