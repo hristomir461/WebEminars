@@ -1,0 +1,120 @@
+﻿@model WebEminarViewModel
+@{
+    this.ViewData["Title"] = Model.Title;
+    int maxStars = 5;
+    bool isLoggedIn = User.Identity.IsAuthenticated;
+    bool userCanBook = isLoggedIn && !Model.UsersBooked.Contains(User.Identity.Name) && Model.MaxPeople > 0;
+}
+
+<p>От: @Model.AddedByUserFirstName @Model.AddedByUserLastName</p>
+<li class="single-meta">
+    <ul class="item-rating">
+        @for (int i = 1; i <= maxStars; i++)
+        {
+            if (i <= Model.AverageVote)
+            {
+                <li class="star-fill" data-vote="@i"><i class="fas fa-star"></i></li>
+            }
+            else
+            {
+                <li data-vote="@i"><i class="fas fa-star"></i></li>
+            }
+        }
+        <li><span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / @maxStars</span> </li>
+    </ul>
+</li>
+<br />
+<br />
+<center>
+    <h1>@Model.Title</h1>
+    @if (Model.ImageName != null)
+    {
+        <img class="card-img-top" src="~/Images/@Model.ImageName" width="100" height="300" alt="Card image cap">
+    }
+    else
+    {
+        <iframe width="560"
+                height="315"
+                src="@Model.VideoUrl"
+                frameborder="0"
+                allowfullscreen></iframe>
+    }
+    <p style="font-size: 20px">@Html.Raw(Model.Description)</p>
+</center>
+@if (Model.ImageName != null)
+{
+    <h4>Дата: @Model.DateTime.ToShortDateString()</h4>
+    <h4>Час: @Model.DateTime.ToShortTimeString()</h4>
+}
+<h4>Тема: @Model.CategoryName</h4>
+@if (Model.UsersBooked.Contains(User.Identity.Name))
+{
+    <h4>Meet Link: @Model.MeetLink</h4>
+    foreach (var user in Model.UsersNamesBooked)
+    {
+        <p>@user</p>
+    }
+}
+@if (Model.ImageName != null && Model.DateTime >= DateTime.UtcNow)
+{
+    <h4>Aveilable bookings: @Model.MaxPeople</h4>
+            }
+@if(Model.ImageName != null && Model.DateTime <= DateTime.UtcNow)
+            {
+<h4>Izminal</h4>
+            }
+@if(Model.ImageName == null)
+            {
+<h4>Kachen</h4>
+            }
+<style>
+    ul li.star-fill i {
+        color: orange;
+    }
+
+    ul {
+        list-style-type: none;
+        float: right;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+    }
+</style>
+@if (userCanBook)
+{
+    <form method="post" asp-action="BookForEvent">
+        @if (Model.ImageName != null && Model.DateTime >= DateTime.UtcNow)
+        {
+            <input type="hidden" name="EventId" value="@Model.Id" />
+
+            <button class="btn btn-primary">Book for Event</button>
+        }
+    </form>
+}
+<form method="post" id="antiForgeryForm"></form>
+@section Scripts {
+    <script>
+        $("li[data-vote]").each(function (el) {
+            $(this).click(function () {
+                var value = $(this).attr("data-vote");
+                var webEminarId = @Model.Id;
+                var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+                var data = { webEminarId: webEminarId, value: value };
+                $.ajax({
+                    type: "POST",
+                    url: "/api/Votes",
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': antiForgeryToken
+                    },
+                    success: function (data) {
+                        $('#averageVoteValue').html(data.averageVote.toFixed(1));
+                    },
+                    contentType: 'application/json',
+                });
+            })
+        });
+    </script>
+}

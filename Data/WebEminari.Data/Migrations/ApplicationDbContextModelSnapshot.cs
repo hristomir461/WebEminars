@@ -384,7 +384,6 @@ namespace WebEminari.Data.Migrations
                         .HasColumnType("nvarchar(600)");
 
                     b.Property<string>("ImageName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -394,7 +393,6 @@ namespace WebEminari.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MeetLink")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -405,6 +403,9 @@ namespace WebEminari.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Video")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

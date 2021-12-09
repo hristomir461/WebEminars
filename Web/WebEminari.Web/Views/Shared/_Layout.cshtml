@@ -25,9 +25,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="WebEminars" asp-action="All">All Web Eminars</a>
                         </li>
                         @if (this.User.Identity.IsAuthenticated)
@@ -40,6 +37,12 @@
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Administration" asp-controller="Categories" asp-action="Index">Categories Admin</a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Administration" asp-controller="WebEminars" asp-action="Index">WebEminars Admin</a>
                             </li>
                         }
                     </ul>

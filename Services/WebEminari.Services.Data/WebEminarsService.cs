@@ -41,6 +41,20 @@ namespace WebEminari.Services.Data
             await this.webEminarRepository.SaveChangesAsync();
         }
 
+        public async Task CreateWithVideoAsync(WebEminarWithVideoViewModel input, string userId)
+        {
+            var webEminar = new WebEminar()
+            {
+                Title = input.Title,
+                Video = input.Video,
+                CategoryId = input.CategoryId,
+                Description = input.Description,
+                AddedByUserId = userId,
+            };
+
+            await this.webEminarRepository.AddAsync(webEminar);
+            await this.webEminarRepository.SaveChangesAsync();
+        }
         public T GetById<T>(int id)
         {
             var webEminar = this.webEminarRepository
@@ -65,7 +79,7 @@ namespace WebEminari.Services.Data
                 .SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage, string searchString, int categoryName)
+        public IEnumerable<T> GetAll<T>(string stateFilter, int page, int itemsPerPage, string searchString, int categoryName)
         {
 
             if (!string.IsNullOrEmpty(searchString))
@@ -76,6 +90,21 @@ namespace WebEminari.Services.Data
             if (categoryName != null && categoryName != 0)
             {
                 var webEminarsSearch = this.webEminarRepository.AllAsNoTracking().Where(s => s.CategoryId == categoryName).OrderByDescending(r => r.Id).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).To<T>().ToList();
+                return webEminarsSearch;
+            }
+            if (stateFilter == "Izminal")
+            {
+                var webEminarsSearch = this.webEminarRepository.AllAsNoTracking().Where(s => s.ImageName != null && s.DateTime <= DateTime.UtcNow).OrderByDescending(r => r.Id).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).To<T>().ToList();
+                return webEminarsSearch;
+            }
+            if (stateFilter == "Kachen")
+            {
+                var webEminarsSearch = this.webEminarRepository.AllAsNoTracking().Where(s => s.ImageName == null).OrderByDescending(r => r.Id).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).To<T>().ToList();
+                return webEminarsSearch;
+            }
+            if (stateFilter == "Available")
+            {
+                var webEminarsSearch = this.webEminarRepository.AllAsNoTracking().Where(s => s.ImageName != null && s.DateTime >= DateTime.UtcNow).OrderByDescending(r => r.Id).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).To<T>().ToList();
                 return webEminarsSearch;
             }
             var webEminars = this.webEminarRepository

@@ -25,7 +25,7 @@ namespace WebEminari.Web.Areas.Administration.Controllers
         public async Task<IActionResult> Index()
         {
             return this.View(await this.dataRepository
-                .AllWithDeleted()
+                .All()
                 .ToListAsync());
         }
 

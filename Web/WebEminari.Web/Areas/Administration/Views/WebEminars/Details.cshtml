@@ -1,0 +1,86 @@
+﻿@model WebEminari.Web.ViewModels.WebEminars.WebEminarViewModel
+@{
+    this.ViewData["Title"] = Model.Title;
+    int maxStars = 5;
+    bool isLoggedIn = User.Identity.IsAuthenticated;
+    bool userCanBook = isLoggedIn && !Model.UsersBooked.Contains(User.Identity.Name) && Model.MaxPeople > 0;
+}
+
+<p>От: @Model.AddedByUserFirstName @Model.AddedByUserLastName</p>
+<li class="single-meta">
+    <ul class="item-rating">
+        <li class="star-fill" data-vote="1"><i class="fas fa-star"></i></li>
+        <li class="star-fill" data-vote="2"><i class="fas fa-star"></i></li>
+        <li class="star-fill" data-vote="3"><i class="fas fa-star"></i></li>
+        <li class="star-fill" data-vote="4"><i class="fas fa-star"></i></li>
+        <li class="star-fill" data-vote="5"><i class="fas fa-star"></i></li>
+        <li><span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / 5</span> </li>
+    </ul>
+</li>
+<br />
+<br />
+<center>
+    <h1>@Model.Title</h1>
+    <img src="~/Images/@Model.ImageName" width="400" asp-append-version="true" />
+    <p style="font-size: 20px">@Html.Raw(Model.Description)</p>
+</center>
+<h4>Дата: @Model.DateTime.ToShortDateString()</h4>
+<h4>Час: @Model.DateTime.ToShortTimeString()</h4>
+<h4>Час: @Model.CategoryName</h4>
+@if (Model.UsersBooked.Contains(User.Identity.Name))
+{
+    <h4>Meet Link: @Model.MeetLink</h4>
+    foreach (var user in Model.UsersNamesBooked)
+    {
+        <p>@user</p>
+    }
+}
+<h4>Aveilable bookings: @Model.MaxPeople</h4>
+<style>
+    ul li.star-fill i {
+        color: orange;
+    }
+
+    ul {
+        list-style-type: none;
+        float: right;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+    }
+</style>
+@if (userCanBook)
+{
+    <form method="post" asp-action="BookForEvent">
+        <input type="hidden" name="EventId" value="@Model.Id" />
+
+        <button class="btn btn-primary">Book for Event</button>
+    </form>
+}
+<form method="post" id="antiForgeryForm"></form>
+@section Scripts {
+    <script>
+        $("li[data-vote]").each(function (el) {
+            $(this).click(function () {
+                var value = $(this).attr("data-vote");
+                var webEminarId = @Model.Id;
+                var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+                var data = { webEminarId: webEminarId, value: value };
+                $.ajax({
+                    type: "POST",
+                    url: "/api/Votes",
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': antiForgeryToken
+                    },
+                    success: function (data) {
+                        $('#averageVoteValue').html(data.averageVote.toFixed(1));
+                    },
+                    contentType: 'application/json',
+                });
+            })
+        });
+    </script>
+}

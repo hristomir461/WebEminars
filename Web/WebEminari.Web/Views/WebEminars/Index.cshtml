@@ -8,6 +8,9 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<p>
+    <a asp-action="CreateWithVideo">Create Video</a>
+</p>
 <table id="example" class="display" style="width:100%">
     <thead>
         <tr>
@@ -51,7 +54,15 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    <img src="~/Images/@item.ImageName" class="rounded-circle" width="40" height="40" asp-append-version="true" />
+                    @if (item.ImageName != null)
+                    {
+                        <img src="~/Images/@item.ImageName" class="rounded-circle" width="40" height="40" asp-append-version="true" />
+                    }
+                    else
+                    {
+                        <img src="@item.ThumbnailUrl" class="rounded-circle" width="40" height="40" asp-append-version="true" />
+                    }
+
                 </td>
                 <td>
                     @Html.Raw(item.Description.Substring(0, item.Description.Length >= 30 ? 30 : item.Description.Length))

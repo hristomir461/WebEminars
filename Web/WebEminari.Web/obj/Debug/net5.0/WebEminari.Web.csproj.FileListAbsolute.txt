@@ -1425,7 +1425,6 @@ D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Identity\
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Settings\Index.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -1433,7 +1432,6 @@ D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_L
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_PagingPartial.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\All.cshtml.g.cs
-D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\ById.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\Create.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\Edit.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -1447,3 +1445,12 @@ D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\ref\WebEminari.Web.dl
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\WebEminari.Web.pdb
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\WebEminari.Web.genruntimeconfig.cache
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\Index.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Settings\Index.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\Create.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\Delete.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\Details.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\Edit.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\Index.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\Details.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\CreateWithVideo.cshtml.g.cs

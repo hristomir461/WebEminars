@@ -12,14 +12,21 @@
         <div class="row">
             @foreach (var webEminar in this.Model.RandomWebEminars)
             {
-                <div class="card col-md-6" style="width: 18rem;">
-                    <img class="card-img-top" src="~/Images/@webEminar.ImageName" width="100" height="300">
-                    <div class="card-body">
-                        <h5 class="card-title">@webEminar.Title</h5>
-                        <p class="card-text">@webEminar.CategoryName</p>
-                        <a asp-controller="WebEminars" asp-action="ById" asp-route-id="@webEminar.Id" class="btn btn-primary">Read more</a>
-                    </div>
+            <div class="card col-md-6" style="width: 18rem;">
+                @if (webEminar.ImageName != null)
+                {
+                    <img class="card-img-top" src="~/Images/@webEminar.ImageName" width="100" height="300" alt="Card image cap">
+                }
+                else
+                {
+                    <img class="card-img-top" src="@webEminar.ThumbnailUrl" width="100" height="300" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@webEminar.Title</h5>
+                    <p class="card-text">@webEminar.CategoryName</p>
+                    <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@webEminar.Id" class="btn btn-primary">Read more</a>
                 </div>
+            </div>
             }
         </div>
     </div>

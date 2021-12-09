@@ -14,9 +14,11 @@ namespace WebEminari.Services.Data
     {
         Task CreateAsync(WebEminarViewModel input, string userId, string ImageName);
 
+        Task CreateWithVideoAsync(WebEminarWithVideoViewModel input, string userId);
+
         T GetById<T>(int id);
 
-        IEnumerable<T> GetAll<T>(int page, int itemsPerPage, string searchString, int categoryId);
+        IEnumerable<T> GetAll<T>(string stateFilter, int page, int itemsPerPage, string searchString, int categoryId);
 
         IEnumerable<T> GetRandom<T>(int count);
 

@@ -20,21 +20,20 @@ namespace WebEminari.Services.Data
 
         public async Task SetVoteAsync(int webEminarId, string userId, byte value)
         {
-            if (this.votesRepository
-                .AllAsNoTracking()
-                .Any(v => v.WebEminarId == webEminarId && v.UserId == userId))
+            var vote = this.votesRepository.All()
+                .FirstOrDefault(x => x.WebEminarId == webEminarId && x.UserId == userId);
+            if (vote == null)
             {
-                return;
+                 vote = new Vote()
+                {
+                    UserId = userId,
+                    WebEminarId = webEminarId,
+                    Value = value,
+                };
+                await this.votesRepository.AddAsync(vote);
             }
 
-            var vote = new Vote()
-            {
-                UserId = userId,
-                WebEminarId = webEminarId,
-                Value = value,
-            };
-
-            await this.votesRepository.AddAsync(vote);
+            vote.Value = value;
             await this.votesRepository.SaveChangesAsync();
         }
 

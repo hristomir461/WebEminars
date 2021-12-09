@@ -1090,7 +1090,6 @@ D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.We
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.Web.runtimeconfig.json
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.Web.runtimeconfig.dev.json
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\appsettings.json
-D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.Web.StaticWebAssets.xml
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.Web.exe
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.Web.Tests.StaticWebAssets.xml
@@ -1615,3 +1614,4 @@ D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\obj\Debug\net5.0\WebEminari.We
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\obj\Debug\net5.0\ref\WebEminari.Web.Tests.dll
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\obj\Debug\net5.0\WebEminari.Web.Tests.pdb
 D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\obj\Debug\net5.0\WebEminari.Web.Tests.genruntimeconfig.cache
+D:\Projects\WebEminars\Tests\WebEminari.Web.Tests\bin\Debug\net5.0\WebEminari.Web.StaticWebAssets.xml

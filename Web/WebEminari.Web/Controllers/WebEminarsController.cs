@@ -20,7 +20,7 @@ namespace WebEminari.Web.Controllers
 {
     public class WebEminarsController : Controller
     {
-        private const int ItemsPerPage = 2;
+        private const int ItemsPerPage = 6;
 
         private readonly ICategoriesService categoriesService;
 
@@ -49,7 +49,7 @@ namespace WebEminari.Web.Controllers
             return this.View(items);
         }
 
-        public IActionResult All(int categoryId, string searchString, int id = 1)
+        public IActionResult All(string stateFilter, int categoryId, string searchString, int id = 1)
         {
             if (id <= 0)
             {
@@ -59,15 +59,17 @@ namespace WebEminari.Web.Controllers
             var viewModel = new WebEminarsListViewModel()
             {
                 PageNumber = id,
-                WebEminars = this.webEminarService.GetAll<WebEminarsInListViewModel>(id, ItemsPerPage, searchString, categoryId),
+                WebEminars = this.webEminarService.GetAll<WebEminarsInListViewModel>(stateFilter, id, ItemsPerPage, searchString, categoryId),
                 WebEminarsCount = this.webEminarService.GetCount(),
                 ItemsPerPage = ItemsPerPage,
                 SearchText = searchString,
+                StateFilter = stateFilter,
                 CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs(),
         };
 
             return this.View(viewModel);
         }
+
 
         [Authorize]
         public IActionResult Create()
@@ -99,10 +101,40 @@ namespace WebEminari.Web.Controllers
             return this.Redirect("All");
         }
 
-        public IActionResult ById(int id)
-        {
-            var webEminar = this.webEminarService.GetById<WebEminarViewModel>(id);
 
+        [Authorize]
+        public IActionResult CreateWithVideo()
+        {
+            var viewModel = new WebEminarWithVideoViewModel();
+
+            viewModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreateWithVideo(WebEminarWithVideoViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+
+                return this.View(input);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+
+            await this.webEminarService.CreateWithVideoAsync(input, user.Id);
+
+            return this.Redirect("All");
+        }
+
+        public IActionResult Details(int id)
+        { 
+            var webEminar = this.webEminarService.GetById<WebEminarViewModel>(id);
+   
             return this.View(webEminar);
         }
 
@@ -145,7 +177,7 @@ namespace WebEminari.Web.Controllers
 
             await this.webEminarService.UpdateAsync(id, input, stringFile);
 
-            return this.RedirectToAction(nameof(this.ById), new { id });
+            return this.RedirectToAction(nameof(this.Details), new { id });
         }
 
         [HttpPost]
@@ -178,7 +210,7 @@ namespace WebEminari.Web.Controllers
         public async Task<IActionResult> BookForEvent(int eventId)
         {
             await this.webEminarService.BookEvent(eventId, await this.userManager.GetUserAsync(this.User));
-            return this.RedirectToAction("ById", new { id = eventId });
+            return this.RedirectToAction("Details", new { id = eventId });
         }
     }
 

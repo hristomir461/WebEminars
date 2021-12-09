@@ -15,6 +15,8 @@ namespace WebEminari.Web.ViewModels.WebEminars
 
         public int CategoryId { get; set; }
 
+        public string StateFilter { get; set; }
+
         public IEnumerable<KeyValuePair<string, string>> CategoriesItems { get; set; }
     }
 }
