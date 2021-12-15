@@ -2239,7 +2239,7 @@
       },
       "WebEminari.Services.Data/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "WebEminari.Data.Common": "1.0.0",
           "WebEminari.Data.Models": "1.0.0",

@@ -1454,3 +1454,12 @@ D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administr
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\Index.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\Details.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\CreateWithVideo.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\IndexWebEminars.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\IndexWebEminarsWithVideos.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\BookedPeople.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\IndexWebEminars.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\IndexWebEminarsWithVideos.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\EditWithVideo.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\EditWithVideo.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\CreateWithVideo.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\WebEminars\BookedPeople.cshtml.g.cs

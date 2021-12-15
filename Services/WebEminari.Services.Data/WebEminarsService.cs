@@ -55,6 +55,7 @@ namespace WebEminari.Services.Data
             await this.webEminarRepository.AddAsync(webEminar);
             await this.webEminarRepository.SaveChangesAsync();
         }
+
         public T GetById<T>(int id)
         {
             var webEminar = this.webEminarRepository
@@ -131,12 +132,15 @@ namespace WebEminari.Services.Data
                 .All()
                 .FirstOrDefault(r => r.Id == id);
 
-            webEminar.Title = input.Title;
-            webEminar.CategoryId = input.CategoryId;
-            webEminar.Description = input.Description;
-            webEminar.MaxPeople = input.MaxPeople;
-            webEminar.DateTime = input.DateTime;
-            webEminar.MeetLink = input.MeetLink;
+                webEminar.Title = input.Title;
+                webEminar.CategoryId = input.CategoryId;
+                webEminar.Description = input.Description;
+                webEminar.MaxPeople = input.MaxPeople;
+                webEminar.DateTime = input.DateTime;
+                webEminar.MeetLink = input.MeetLink;
+                webEminar.Video = input.Video;
+
+
             if (!string.IsNullOrEmpty(ImageName))
             {
                 webEminar.ImageName = ImageName;
@@ -172,6 +176,21 @@ namespace WebEminari.Services.Data
             }
             eventFd.MaxPeople--;
             eventFd.UserBookings.Add(new UserBooking(user.Id, eventId));
+            await this.webEminarRepository.SaveChangesAsync();
+        }
+
+        public async Task UpdateWithVideoAsync(int id, WebEminarWithVideoViewModel input)
+        {
+            var webEminar = this.webEminarRepository
+             .All()
+             .FirstOrDefault(r => r.Id == id);
+
+            webEminar.Title = input.Title;
+            webEminar.CategoryId = input.CategoryId;
+            webEminar.Description = input.Description;
+            webEminar.Video = input.Video;
+
+
             await this.webEminarRepository.SaveChangesAsync();
         }
     }

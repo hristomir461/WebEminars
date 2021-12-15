@@ -48,11 +48,28 @@ namespace WebEminari.Web.Areas.Administration.Controllers
         // GET: Administration/WebEminars
         public async Task<IActionResult> Index()
         {
+            return this.View("Index");
+        }
+        public async Task<IActionResult> IndexWebEminars()
+        {
             return this.View(await this.dataRepository
                .All()
+               .Where(webEminars => webEminars.ImageName != null)
                .ToListAsync());
         }
+        public async Task<IActionResult> IndexWebEminarsWithVideos()
+        {
+            return this.View(await this.dataRepository
+               .All()
+               .Where(webEminars => webEminars.ImageName == null)
+               .ToListAsync());
+        }
+        public IActionResult BookedPeople(int id)
+        {
+            var webEminar = this.webEminarService.GetById<WebEminarViewModel>(id);
 
+            return this.View(webEminar);
+        }
         public IActionResult Details(int id)
         {
             var webEminar = this.webEminarService.GetById<WebEminarViewModel>(id);
@@ -86,7 +103,32 @@ namespace WebEminari.Web.Areas.Administration.Controllers
 
             await this.webEminarService.CreateAsync(input, user.Id, stringFile);
 
-            return this.Redirect("All");
+            return this.Redirect("IndexWebEminars");
+        }
+        public IActionResult CreateWithVideo()
+        {
+            var viewModel = new WebEminarWithVideoViewModel();
+
+            viewModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateWithVideo(WebEminarWithVideoViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+
+                return this.View(input);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            await this.webEminarService.CreateWithVideoAsync(input, user.Id);
+
+            return this.Redirect("IndexWebEminarsWithVideos");
         }
         public IActionResult Edit(int id)
         {
@@ -115,6 +157,30 @@ namespace WebEminari.Web.Areas.Administration.Controllers
             }
 
             await this.webEminarService.UpdateAsync(id, input, stringFile);
+
+            return this.RedirectToAction(nameof(this.Details), new { id });
+        }
+        public IActionResult EditWithVideo(int id)
+        {
+
+                var inputModel = this.webEminarService.GetById<WebEminarWithVideoViewModel>(id);
+
+                inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+
+                return this.View(inputModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditWithVideo(int id, WebEminarWithVideoViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+                return this.View(input);
+            }
+
+
+            await this.webEminarService.UpdateWithVideoAsync(id, input);
 
             return this.RedirectToAction(nameof(this.Details), new { id });
         }

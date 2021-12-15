@@ -5,12 +5,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using AutoMapper;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+using WebEminari.Data.Models;
+using WebEminari.Services.Mapping;
+
 namespace WebEminari.Web.ViewModels.WebEminars
 {
-   public class BaseWebEminarViewModel 
+   public class BaseWebEminarViewModel : IMapFrom<WebEminar>
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Too long title")]

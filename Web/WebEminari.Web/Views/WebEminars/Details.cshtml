@@ -58,15 +58,15 @@
 @if (Model.ImageName != null && Model.DateTime >= DateTime.UtcNow)
 {
     <h4>Aveilable bookings: @Model.MaxPeople</h4>
-            }
-@if(Model.ImageName != null && Model.DateTime <= DateTime.UtcNow)
-            {
-<h4>Izminal</h4>
-            }
-@if(Model.ImageName == null)
-            {
-<h4>Kachen</h4>
-            }
+}
+@if (Model.ImageName != null && Model.DateTime <= DateTime.UtcNow)
+{
+    <h4>Izminal</h4>
+}
+@if (Model.ImageName == null)
+{
+    <h4>Kachen</h4>
+}
 <style>
     ul li.star-fill i {
         color: orange;
@@ -93,6 +93,7 @@
         }
     </form>
 }
+
 <form method="post" id="antiForgeryForm"></form>
 @section Scripts {
     <script>

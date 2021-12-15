@@ -77,7 +77,6 @@ namespace WebEminari.Data.Models
         public virtual ICollection<Vote> Votes { get; set; }
 
         public virtual ICollection<UserBooking> UserBookings { get; set; }
-
     }
 }
 

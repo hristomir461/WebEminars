@@ -28,5 +28,6 @@ namespace WebEminari.Services.Data
 
         Task DeleteAsync(int id);
         Task BookEvent(int eventId, ApplicationUser user);
+        Task UpdateWithVideoAsync(int id, WebEminarWithVideoViewModel input);
     }
 }

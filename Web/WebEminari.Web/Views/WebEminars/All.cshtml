@@ -21,9 +21,11 @@
         </div>
     </form>
     <br />  
-    <button name="stateFilter" value="Kachen" asp-action="All">Kachen</button>
-    <button name="stateFilter" value="Izminal" asp-action="All">Izminal</button>
-    <button name="stateFilter" value="Available" asp-action="All">Available</button>
+    <form action="All" method="get">
+        <button name="stateFilter" value="Kachen" asp-action="All">Kachen</button>
+        <button name="stateFilter" value="Izminal" asp-action="All">Izminal</button>
+        <button name="stateFilter" value="Available" asp-action="All">Available</button>
+    </form>
 </center>
 <br />
 <div class="row">
