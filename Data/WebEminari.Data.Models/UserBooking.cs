@@ -13,16 +13,23 @@ namespace WebEminari.Data.Models
 {
 
 
-    public class UserBooking
+    public class UserBooking : BaseDeletableModel<int>
     {
         public UserBooking()
         { }
-        public UserBooking(string userId, int webEminarId)
+        public UserBooking(string userId, int webEminarId, string userFirstName, string userLastName)
         {
             UserId = userId;
+            UserFirstName = userFirstName;
+            UserLastName = userLastName;
             WebEminarId = webEminarId;
         }
         public string UserId { get; set; }
+
+        public string UserFirstName { get; set; }
+
+        public string UserLastName { get; set; }
+
         public int WebEminarId { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual WebEminar WebEminar { get; set; }

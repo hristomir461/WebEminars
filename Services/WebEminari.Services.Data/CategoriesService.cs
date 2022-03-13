@@ -16,7 +16,8 @@ namespace WebEminari.Services.Data
         {
             this.categoriesRepository = categoriesRepository;
         }
-
+        public int GetCount()
+            => this.categoriesRepository.All().Count();
         public IEnumerable<KeyValuePair<string, string>> GetAllAsKeyValuePairs()
         {
             return this.categoriesRepository

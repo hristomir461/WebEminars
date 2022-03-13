@@ -1,7 +1,15 @@
-﻿@model WebEminarViewModel
+﻿@model IEnumerable<WebEminari.Data.Models.UserBooking>
 @{
 }
-@foreach (var user in Model.UsersNamesBooked)
+@if (Model.Any() == true)
 {
-    <p>@user</p>
+    foreach (var user in Model)
+    {
+        <p>@user.UserFirstName @user.UserLastName</p>
+    }
 }
+else
+{
+    <p>No peoples</p>
+}
+

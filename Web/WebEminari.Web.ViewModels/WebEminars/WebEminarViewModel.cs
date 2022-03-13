@@ -4,28 +4,31 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 
 using AutoMapper;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+using WebEminari.Common;
 using WebEminari.Data.Models;
 using WebEminari.Services.Mapping;
+using WebEminari.Web.ViewModels.Comments;
 
 namespace WebEminari.Web.ViewModels.WebEminars
 {
     public class WebEminarViewModel : BaseWebEminarViewModel, IMapFrom<WebEminar>, IHaveCustomMappings
     {
-        public WebEminarViewModel()
-        {
-            this.Video = "default";
-        }
         public int Id { get; set; }
 
         public ICollection<string> UsersBooked { get; set; }
 
         public ICollection<string> UsersNamesBooked { get; set; }
+
+        public ICollection<UserBooking> UsersBookings { get; set; }
+
+        public int LikesCount { get; set; }
 
         [Required]
         public int MaxPeople { get; set; }
@@ -49,33 +52,21 @@ namespace WebEminari.Web.ViewModels.WebEminars
 
         public string Video { get; set; }
 
-        public static string GetYouTubeId(string url)
-        {
-            var regex = @"(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|watch)\/|.*[?&amp;]v=)|youtu\.be\/)([^""&amp;?\/ ]{11})";
-
-            var match = Regex.Match(url, regex);
-
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-
-            return url;
-        }
-
-        private string VideoId => GetYouTubeId(this.Video);
+        private string VideoId => GlobalMethods.GetYouTubeVideoIdFromUrl(this.Video);
 
         public string VideoUrl => $"https://www.youtube.com/embed/{this.VideoId}";
+
+        public string ThumbnailUrl => $"https://i.ytimg.com/vi/{this.VideoId}/maxresdefault.jpg";
+
+        public IEnumerable<Comment> Comments { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<WebEminar, WebEminarViewModel>()
-                   .ForMember(x => x.AverageVote, opt =>
-                    opt.MapFrom(x => x.Votes.Count == 0 ? 0 : x.Votes.Average(v => v.Value)))
-                   .ForMember(x => x.UsersBooked, opt =>
-                      opt.MapFrom(x => x.UserBookings.Select(y => y.User.UserName)))
-                    .ForMember(x => x.UsersNamesBooked, opt =>
-                      opt.MapFrom(x => x.UserBookings.Select(y => y.User.FirstName + y.User.LastName)));
+                   .ForMember(x => x.AverageVote, opt => opt.MapFrom(x => x.Votes.Count == 0 ? 0 : x.Votes.Average(v => v.Value)))
+                   .ForMember(x => x.UsersBooked, opt => opt.MapFrom(x => x.UserBookings.Select(y => y.User.UserName)));
         }
     }
 }

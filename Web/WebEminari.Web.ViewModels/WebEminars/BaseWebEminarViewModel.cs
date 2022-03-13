@@ -4,8 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web.Mvc;
 
 using AutoMapper;
+
+using Ganss.XSS;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +20,8 @@ namespace WebEminari.Web.ViewModels.WebEminars
 {
    public class BaseWebEminarViewModel : IMapFrom<WebEminar>
     {
+      
+
         [Required]
         [MaxLength(50, ErrorMessage = "Too long title")]
         [MinLength(4, ErrorMessage = "Too short title")]
@@ -30,8 +35,7 @@ namespace WebEminari.Web.ViewModels.WebEminars
         public IFormFile Image { get; set; }
 
         [Required]
-        [MaxLength(600)]
-        [MinLength(80, ErrorMessage = "Too short description")]
+        [DataType(DataType.Html)]
         public string Description { get; set; }
 
         public string SearchString { get; set; }
@@ -39,6 +43,8 @@ namespace WebEminari.Web.ViewModels.WebEminars
         public string AddedByUserEmail { get; set; }
 
         public string AddedByUserFirstName { get; set; }
+
+        public string AddedByUserImagePath { get; set; }
 
         public string AddedByUserLastName { get; set; }
 

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +22,20 @@ using WebEminari.Web.ViewModels.WebEminars;
 namespace WebEminari.Web.Areas.Administration.Controllers
 {
     [Area("Administration")]
+    [Authorize(Roles = "Administrator")]
     public class WebEminarsController : Controller
     {
         private readonly IDeletableEntityRepository<WebEminar> dataRepository;
+
+        private readonly IDeletableEntityRepository<UserBooking> userBookingsRepository;
+
+        private readonly IDeletableEntityRepository<Vote> votesRepository;
+
+        private readonly IDeletableEntityRepository<Comment> commentsRepository;
+
+        private readonly IDeletableEntityRepository<Report> reportsRepository;
+
+        private readonly IDeletableEntityRepository<Like> likesRepository;
 
         private readonly ICategoriesService categoriesService;
 
@@ -34,47 +47,52 @@ namespace WebEminari.Web.Areas.Administration.Controllers
 
         private readonly ApplicationDbContext context;
 
-        public WebEminarsController(IDeletableEntityRepository<WebEminar> dataRepository, ICategoriesService categoriesService, IWebEminarsService webEminarService, ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnviroment)
+        private readonly IInformationService informationService;
+
+        public WebEminarsController(IInformationService informationService, IDeletableEntityRepository<Like> likesRepository, IDeletableEntityRepository<Report> reportsRepository, IDeletableEntityRepository<Comment> commentsRepository, IDeletableEntityRepository<Vote> votesRepository, IDeletableEntityRepository<UserBooking> userBookingsRepository, IDeletableEntityRepository<WebEminar> dataRepository, ICategoriesService categoriesService, IWebEminarsService webEminarService, ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnviroment)
         {
+            this.likesRepository = likesRepository;
+            this.reportsRepository = reportsRepository;
+            this.commentsRepository = commentsRepository;
+            this.votesRepository = votesRepository;
+            this.userBookingsRepository = userBookingsRepository;
             this.userManager = userManager;
             this.context = context;
             this.WebHostEnviroment = webHostEnviroment;
             this.webEminarService = webEminarService;
             this.categoriesService = categoriesService;
             this.dataRepository = dataRepository;
+            this.informationService = informationService;
         }
-     
+
 
         // GET: Administration/WebEminars
         public async Task<IActionResult> Index()
         {
-            return this.View("Index");
+           
+            var model = await this.informationService.GenerateAdministrationIndexViewModel();
+
+            return this.View(model);
         }
         public async Task<IActionResult> IndexWebEminars()
         {
             return this.View(await this.dataRepository
-               .All()
+               .AllWithDeleted()
                .Where(webEminars => webEminars.ImageName != null)
                .ToListAsync());
         }
         public async Task<IActionResult> IndexWebEminarsWithVideos()
         {
             return this.View(await this.dataRepository
-               .All()
+               .AllWithDeleted()
                .Where(webEminars => webEminars.ImageName == null)
                .ToListAsync());
         }
         public IActionResult BookedPeople(int id)
         {
             var webEminar = this.webEminarService.GetById<WebEminarViewModel>(id);
-
-            return this.View(webEminar);
-        }
-        public IActionResult Details(int id)
-        {
-            var webEminar = this.webEminarService.GetById<WebEminarViewModel>(id);
-
-            return this.View(webEminar);
+            var userBookings = context.UserBookings.Where(x => x.WebEminarId == webEminar.Id);
+            return this.View(userBookings);
         }
 
         // GET: Administration/WebEminars/Create
@@ -130,9 +148,11 @@ namespace WebEminari.Web.Areas.Administration.Controllers
 
             return this.Redirect("IndexWebEminarsWithVideos");
         }
+
         public IActionResult Edit(int id)
         {
-                var inputModel = this.webEminarService.GetById<WebEminarViewModel>(id);
+       
+                var inputModel = this.webEminarService.GetByIdAdmin<WebEminarViewModel>(id);
 
                 inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
 
@@ -142,23 +162,16 @@ namespace WebEminari.Web.Areas.Administration.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, WebEminarViewModel input)
         {
-            //  this.ModelState["Image"].Errors.Clear();
-            this.ModelState["Image"].ValidationState = ModelValidationState.Valid;
-            if (!this.ModelState.IsValid)
-            {
-                input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
-                return this.View(input);
-            }
-
+     
             string stringFile = input.ImageName;
             if (input.Image != null)
             {
                 stringFile = this.UploadFile(input);
             }
 
-            await this.webEminarService.UpdateAsync(id, input, stringFile);
+            await this.webEminarService.UpdateAdminAsync(id, input, stringFile);
 
-            return this.RedirectToAction(nameof(this.Details), new { id });
+            return this.RedirectToAction("IndexWebEminars");
         }
         public IActionResult EditWithVideo(int id)
         {
@@ -168,6 +181,7 @@ namespace WebEminari.Web.Areas.Administration.Controllers
                 inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
 
                 return this.View(inputModel);
+
         }
 
         [HttpPost]
@@ -182,9 +196,40 @@ namespace WebEminari.Web.Areas.Administration.Controllers
 
             await this.webEminarService.UpdateWithVideoAsync(id, input);
 
-            return this.RedirectToAction(nameof(this.Details), new { id });
+            return this.RedirectToAction("IndexWebEminarsWithVideos");
+        }
+        public IActionResult IzminalToKachen(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var items = this.context.WebEminars;
+            if (items.Any(webEminar => webEminar.AddedByUserId == userId))
+            {
+                var inputModel = this.webEminarService.GetById<WebEminarWithVideoViewModel>(id);
+
+                inputModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+
+                return this.View(inputModel);
+            }
+            else
+            {
+                throw new ApplicationException();
+            }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> IzminalToKachen(int id, WebEminarWithVideoViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                input.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
+                return this.View(input);
+            }
+
+
+            await this.webEminarService.IzminalToKachen(id, input);
+
+            return this.RedirectToAction("IndexWebEminarsWithVideos");
+        }
 
         // GET: Administration/WebEminars/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -196,7 +241,7 @@ namespace WebEminari.Web.Areas.Administration.Controllers
             }
 
             var webEminar = await this.dataRepository
-                .All()
+                .AllWithDeleted()
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (webEminar == null)
@@ -213,14 +258,38 @@ namespace WebEminari.Web.Areas.Administration.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var webEminar = this.dataRepository
-              .All()
+              .AllWithDeleted()
               .FirstOrDefault(x => x.Id == id);
-
-            this.dataRepository.Delete(webEminar);
+            var userBookings = this.context.UserBookings.Where(x => x.WebEminarId == id).ToList();
+            var votes = this.context.Votes.Where(x => x.WebEminarId == id).ToList();
+            var comments = this.context.Comments.Where(x => x.WebEminarId == id).ToList();
+            var reports = this.context.Reports.Where(x => x.WebEminarId == id).ToList();
+            var likes = this.context.Likes.Where(x => x.WebEminarId == id).ToList();
+            foreach (var item in reports)
+            {
+                this.reportsRepository.HardDelete(item);
+            }
+            foreach (var item in comments)
+            {
+                this.commentsRepository.HardDelete(item);
+            }
+            foreach (var item in votes)
+            {
+                this.votesRepository.HardDelete(item);
+            }
+            foreach (var item in userBookings)
+            {
+                this.userBookingsRepository.HardDelete(item);
+            }
+            foreach (var item in likes)
+            {
+                this.likesRepository.HardDelete(item);
+            }
+            this.dataRepository.HardDelete(webEminar);
 
             await this.dataRepository.SaveChangesAsync();
 
-            return this.RedirectToAction(nameof(this.Index)); ;
+            return this.RedirectToAction(nameof(this.Index));
         }
 
         private bool WebEminarExists(int id)

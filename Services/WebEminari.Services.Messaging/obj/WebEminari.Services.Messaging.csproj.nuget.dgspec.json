@@ -46,6 +46,10 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Sendgrid": {
               "target": "Package",
               "version": "[9.23.1, )"

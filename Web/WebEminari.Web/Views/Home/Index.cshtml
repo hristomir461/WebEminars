@@ -1,33 +1,403 @@
 ﻿@using WebEminari.Common
-
+@using System.Text.RegularExpressions;
 @model WebEminari.Web.ViewModels.Home.IndexViewModel
 
 @{
     this.ViewData["Name"] = "Home Page";
+    var topFiveWebEminars = this.Model.Webinars.Where(x => x.ImageName != null).OrderByDescending(x => x.AverageVote).ToArray();
+    var topFiveKacheniWebEminars = this.Model.KacheniWebinars.Where(x => x.Video != null).OrderByDescending(x => x.AverageVote).ToArray();
+    var mostLikedWebEminar = this.Model.Webinars.Where(x => x.AverageVote == 5.00).FirstOrDefault();
 }
+<style>
+    :root {
+        --color-one: #e6e6ff;
+        --color-two: #1a1aff;
+        --color-three: #b3b3ff;
+    }
 
-<div class="text-center row">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <div class="col-md-8">
-        <div class="row">
-            @foreach (var webEminar in this.Model.RandomWebEminars)
-            {
-            <div class="card col-md-6" style="width: 18rem;">
-                @if (webEminar.ImageName != null)
-                {
-                    <img class="card-img-top" src="~/Images/@webEminar.ImageName" width="100" height="300" alt="Card image cap">
-                }
-                else
-                {
-                    <img class="card-img-top" src="@webEminar.ThumbnailUrl" width="100" height="300" />
-                }
-                <div class="card-body">
-                    <h5 class="card-title">@webEminar.Title</h5>
-                    <p class="card-text">@webEminar.CategoryName</p>
-                    <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@webEminar.Id" class="btn btn-primary">Read more</a>
+    card-title {
+        font-size: 5px;
+    }
+
+    ul li.star-fill i {
+        color: orange;
+    }
+
+    ul.stars {
+        position: relative;
+        margin-left: -20px;
+        margin-bottom: 10px;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+    }
+
+    .card {
+        border: 1px solid var(--color-three);
+        margin-bottom: 20px;
+        transition: border 0.1s, transform 0.3s;
+    }
+
+        .card:hover {
+            border: 1px solid var(--color-two);
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+            cursor: pointer;
+        }
+
+        .card .card-body h2 {
+            color: var(--color-two);
+        }
+
+        .card img:hover {
+            opacity: 0.6;
+        }
+
+    .card-p {
+        color: var(--color-three);
+    }
+
+        .card-p i {
+            color: var(--color-two);
+            margin-right: 8px;
+        }
+
+    #app {
+        width: 100%;
+        height: 100%;
+        max-width: 1080px;
+        min-height: 460px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+<div class="body-wrap boxed-container">
+    <header class="site-header">
+        <div class="container">
+            <div class="site-header-inner">
+                <div class="brand header-brand">
+                    <h1 class="m-0">
+                        <a href="#">
+                            <img class="header-logo-image asset-light" src="~/staticImages/logo-light.svg" alt="Logo">
+                        </a>
+                    </h1>
                 </div>
             </div>
-            }
         </div>
-    </div>
-    </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-copy">
+                        <h1 class="hero-title mt-0">Намери или създаи уебинар :)</h1>
+                        <p class="hero-paragraph">Webinars e интернет приложение целящо създаването и разпространяването на уебинари като потребителската група може да бъде всякаква.</p>
+                        <div class="hero-cta">
+                            <a class="button button-primary" href="buy.html">Създаи сега</a>
+
+                        </div>
+                    </div>
+                    <div class="hero-media">
+                        <div class="header-illustration">
+                            <img class="header-illustration-image asset-light" src="~/staticImages/header-illustration-light.svg" alt="Header illustration">
+                        </div>
+                        <div class="hero-media-illustration">
+                            <img class="hero-media-illustration-image asset-light" src="~/staticImages/hero-media-illustration-light.svg" alt="Hero media illustration">
+                        </div>
+                        <div class="hero-media-container">
+                            <img class="hero-media-image asset-light" src="https://elearningindustry.com/wp-content/uploads/2020/06/webinar-based-training-and-helpful-strategies.jpg" alt="Hero media">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row" style="margin-top: 200px;margin-left: 50px;margin-right: 50px">
+            @foreach (var webEminar in this.Model.RandomWebEminars)
+            {
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" asp-controller="WebEminars" asp-action="Details" asp-route-id="@webEminar.Id">
+                    <div class="card shadow">
+                        @if (webEminar.ImageName != null)
+                        {
+                            <img src="~/Images/@webEminar.ImageName" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@webEminar.ThumbnailUrl" width="100" height="300" />
+                        }
+                        <div class="card-body">
+                            @{
+
+                                string GetTitle(int length, string title)
+                                {
+                                    if (length >= 23)
+                                    {
+
+                                        title = title.Remove(20);
+                                        title += "...";
+                                        return title;
+
+                                    }
+                                    else
+                                    {
+                                        return title;
+                                    }
+                                }
+
+                            }
+                            <h2 style="font-size: 30px" class="card-title">@GetTitle(webEminar.Title.Length, webEminar.Title)</h2>
+                            <p>@webEminar.CategoryName</p>
+                            @{
+                                Regex regex2 = new Regex("<.*?>|&.*?;", RegexOptions.Singleline);
+                                var x = webEminar.Description;
+
+                                string Decription = regex2.Replace(x, " ").Trim();
+                            }
+                            <p class="card-text">@Decription.Substring(0, 80)</p>
+                        </div>
+                        <div class="card-body card-p">
+                            <div class="row">
+                                <div class="col col-xs-4 ">
+                                    <i class="far fa-comments"></i> @webEminar.CommentsCount
+                                </div>
+                                <div class="col col-xs-4 ">
+                                    <i class="far fa-heart"></i> @webEminar.LikesCount
+                                </div>
+                                <div class="col col-xs-4">
+                                    <i class="far fa-star"></i> @webEminar.AverageVote
+                                </div>
+                            </div>
+                        </div>
+                        <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@webEminar.Id" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+
+
+            }
+
+        </div>
+
+
+
+        <div style="display: none">
+            <p id="title1">@topFiveWebEminars[0].Title</p>
+            <p id="title2">@topFiveWebEminars[1].Title</p>
+            <p id="title3">@topFiveWebEminars[2].Title</p>
+        </div>
+        <h4 style="text-align: center">Топ 3 уеб семинари</h4>
+        <div id="app">
+            <div class="slider" id="swipe-box">
+                <div class="slider__wrapper" v-bind:style="computed_left">
+                    <div class="slider__wrapper__item" v-for="(quote, id) in quotes" v-bind:class='{now_item: id==now_index}'>
+                        <div class="cover" v-bind:style="bg_url(quote.cover)">
+                            <div class="info">
+                                <h2>
+                                    <span v-cloak>{{quote.title}}</span>
+                                </h2>
+                                <h5><span v-cloak>— {{quote.author}}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-left" v-on:click="now_id(-1)">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </div>
+            <div class="arrow-right" v-on:click="now_id(1)">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+        </div>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'>
+        <h4 style="text-align: center">Топ 3 качени уеб семинари</h4>
+        <div class="options" style="margin-left: 280px">
+            <div class="option active" style="--optionBackground:url(@topFiveKacheniWebEminars[0].ThumbnailUrl);">
+                <div class="shadow"></div>
+                <div class="label">
+                    <img class="icon" src="/ProfileImages/@topFiveKacheniWebEminars[0].AddedByUserImagePath" alt="Alternate Text" />
+                    <div class="info">
+                        <div class="main">@topFiveKacheniWebEminars[0].Title</div>
+                        <div class="sub">@topFiveKacheniWebEminars[0].CategoryName</div>
+                    </div>
+                </div>
+            </div>
+            <div class="option" style="--optionBackground:url(@topFiveKacheniWebEminars[1].ThumbnailUrl);">
+                <div class="shadow"></div>
+                <div class="label">
+                    <img class="icon" src="/ProfileImages/@topFiveKacheniWebEminars[1].AddedByUserImagePath" alt="Alternate Text" />
+                    <div class="info">
+                        <div class="main">@topFiveKacheniWebEminars[1].Title</div>
+                        <div class="sub">@topFiveKacheniWebEminars[1].CategoryName</div>
+                    </div>
+                </div>
+            </div>
+            <div class="option" style="--optionBackground:url(@topFiveKacheniWebEminars[2].ThumbnailUrl);">
+                <div class="shadow"></div>
+                <div class="label">
+                    <img class="icon" src="/ProfileImages/@topFiveKacheniWebEminars[2].AddedByUserImagePath" alt="Alternate Text" />
+                    <div class="info">
+                        <div class="main">@topFiveKacheniWebEminars[2].Title</div>
+                        <div class="sub">@topFiveKacheniWebEminars[2].CategoryName</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <section class="cta section">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h1 class="section-title mt-0">Get it and Switch</h1>
+                        <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                        <div class="cta-cta">
+                            <a class="button button-primary" href="#">Buy it now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer has-top-divider">
+        <div class="container">
+            <div class="site-footer-inner">
+                <div class="brand footer-brand">
+                    <a href="#">
+                        <img class="asset-light" src="~/staticImages/logo-light.svg" alt="Logo">
+                        <img class="asset-dark" src="~/staticImages/logo-dark.svg" alt="Logo">
+                    </a>
+                </div>
+                <ul class="footer-links list-reset">
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="#">FAQ's</a>
+                    </li>
+                    <li>
+                        <a href="#">Support</a>
+                    </li>
+                </ul>
+                <ul class="footer-social-links list-reset">
+                    <li>
+                        <a href="#">
+                            <span class="screen-reader-text">Facebook</span>
+                            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#FFF" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="screen-reader-text">Twitter</span>
+                            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#FFF" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="screen-reader-text">Google</span>
+                            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#FFF" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-copyright">&copy; 2022 WEBINARS :)</div>
+            </div>
+        </div>
+    </footer>
+</div>
+@section Scripts{
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+    <script src='https://hammerjs.github.io/dist/hammer.js'></script>
+    <script>
+        var title1 = document.getElementById('title1').innerHTML;
+        var title2 = document.getElementById('title2').innerHTML;
+        var title3 = document.getElementById('title3').innerHTML;
+        var quotes = [
+            {
+                title: title1,
+                author: '@topFiveWebEminars[0].AddedByUserFirstName ' + '@topFiveWebEminars[0].AddedByUserLastName',
+                cover: 'https://localhost:44311/Images/'+'@topFiveWebEminars[0].ImageName'
+            },
+            {
+                title: title2,
+                author: '@topFiveWebEminars[1].AddedByUserFirstName ' + '@topFiveWebEminars[1].AddedByUserLastName',
+                cover: 'https://localhost:44311/Images/'+'@topFiveWebEminars[1].ImageName'
+            },
+            {
+                title: title3,
+                author: '@topFiveWebEminars[2].AddedByUserFirstName ' + '@topFiveWebEminars[1].AddedByUserLastName',
+                cover: 'https://localhost:44311/Images/'+'@topFiveWebEminars[2].ImageName'
+            }
+        ];
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                now_index: 0,
+                quotes: quotes,
+                space: 100
+            },
+            mounted: function () {
+                var obj = this;
+                var slideCount = obj.quotes.length;
+                var sliderManager = new Hammer.Manager(document.querySelector('.slider'));
+                sliderManager.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+                sliderManager.on('pan', function (e) {
+                    var percentage = 100 / slideCount * e.deltaX / window.innerWidth;
+                    if (e.isFinal) {
+                        if (percentage < 0) {
+                            obj.now_id(1);
+                        }
+                        else if (percentage > 0) {
+                            obj.now_id(-1);
+                        }
+                        else {
+                            obj.now_id(0);
+                        }
+                    }
+                });
+            },
+            computed: {
+                computed_left() {
+                    var toLeft = {
+                        "left": (-this.space * this.now_index) + "%"
+                    };
+                    return toLeft;
+                }
+            },
+            methods: {
+                now_id(d) {
+                    this.now_index = (this.now_index + d + this.quotes.length) % this.quotes.length
+                },
+                bg_url(url) {
+                    return {
+                        "background-image": "url(" + url + ")"
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        $(".option").click(function () {
+            $(".option").removeClass("active");
+            $(this).addClass("active");
+
+        });
+    </script>
+}

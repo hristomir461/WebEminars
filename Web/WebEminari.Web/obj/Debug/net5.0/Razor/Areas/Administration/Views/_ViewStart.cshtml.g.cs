@@ -26,8 +26,15 @@ using WebEminari.Web.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\Projects\WebEminars\Web\WebEminari.Web\Areas\Administration\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.HelperModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f93dc7a3980b33ca900f87ebfc95b4576f8372f0", @"/Areas/Administration/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"01f3ef45302eb2447cc1ba2493ca640b9f359c9f", @"/Areas/Administration/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a97622c212e477ffed02058fd84c0443f7ee2eba", @"/Areas/Administration/Views/_ViewImports.cshtml")]
     public class Areas_Administration_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

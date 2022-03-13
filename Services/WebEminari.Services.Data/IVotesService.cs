@@ -7,6 +7,7 @@ namespace WebEminari.Services.Data
 {
     public interface IVotesService
     {
+        int GetCount();
         Task SetVoteAsync(int webEminarId, string userId, byte value);
 
         double GetAverageVotes(int webEminarId);

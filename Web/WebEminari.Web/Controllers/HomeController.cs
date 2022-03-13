@@ -7,14 +7,19 @@
     using Microsoft.AspNetCore.Mvc;
     using WebEminari.Web.ViewModels.Home;
     using WebEminari.Services.Data;
+    using WebEminari.Web.ViewModels.WebEminars;
+    using WebEminari.Data.Models;
+    using WebEminari.Data.Common.Repositories;
 
     public class HomeController : BaseController
     {
         private readonly IWebEminarsService webEminarService;
+        private readonly IDeletableEntityRepository<WebEminar> webEminarRepository;
 
-        public HomeController(IWebEminarsService webEminarService)
+        public HomeController(IWebEminarsService webEminarService, IDeletableEntityRepository<WebEminar> webEminarRepository)
         {
             this.webEminarService = webEminarService;
+            this.webEminarRepository = webEminarRepository;
         }
 
         public IActionResult Index()
@@ -22,7 +27,9 @@
 
             var viewModel = new IndexViewModel()
             {
-                RandomWebEminars = this.webEminarService.GetRandom<IndexPageWebEminarViewModel>(10),
+                RandomWebEminars = this.webEminarService.GetRandom<IndexPageWebEminarViewModel>(3),
+                Webinars = this.webEminarService.GetAllWebinars<WebEminarViewModel>(),
+                KacheniWebinars = this.webEminarService.GetAllWebinars<WebEminarViewModel>(),
             };
 
             return this.View(viewModel);

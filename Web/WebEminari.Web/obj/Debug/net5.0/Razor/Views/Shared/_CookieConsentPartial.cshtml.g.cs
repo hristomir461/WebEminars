@@ -34,6 +34,48 @@ using WebEminari.Web.ViewModels.WebEminars;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.Reports.WebEminars;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.Reports.Comments;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.Administration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.Administration.Report;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\Shared\_CookieConsentPartial.cshtml"
 using Microsoft.AspNetCore.Http.Features;
 
@@ -41,7 +83,7 @@ using Microsoft.AspNetCore.Http.Features;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"87a0a77f4f3531cb3e803d909ec1ca1cfbbbcad9", @"/Views/Shared/_CookieConsentPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5fa2d5d925e2fe60b5eb2d7bd1f7579a68a1fe6f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"72d41446240f96ac72ec82e6c5039fec6e273a4f", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__CookieConsentPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -92,7 +134,7 @@ using Microsoft.AspNetCore.Http.Features;
 #line hidden
 #nullable disable
             WriteLiteral("    <div id=\"cookieConsent\" class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">\r\n        We use cookies to understand how you use our site and to improve your experience. ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87a0a77f4f3531cb3e803d909ec1ca1cfbbbcad95239", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87a0a77f4f3531cb3e803d909ec1ca1cfbbbcad96391", async() => {
                 WriteLiteral("Learn More");
             }
             );

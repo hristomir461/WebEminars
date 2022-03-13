@@ -16,7 +16,7 @@ namespace WebEminari.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.12")
+                .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -50,6 +50,9 @@ namespace WebEminari.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
 
@@ -61,6 +64,8 @@ namespace WebEminari.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("UserId");
 
@@ -75,6 +80,9 @@ namespace WebEminari.Data.Migrations
                     b.Property<string>("ProviderKey")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
@@ -83,6 +91,8 @@ namespace WebEminari.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("UserId");
 
@@ -97,7 +107,12 @@ namespace WebEminari.Data.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("RoleId");
 
@@ -192,6 +207,9 @@ namespace WebEminari.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -278,6 +296,224 @@ namespace WebEminari.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("WebEminari.Data.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chats");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedOn = new DateTime(2022, 3, 5, 16, 0, 10, 592, DateTimeKind.Utc).AddTicks(1402),
+                            Name = "Main"
+                        });
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.ChatApplicationUser", b =>
+                {
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ChatId", "ApplicationUserId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("ChatApplicationUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            ChatId = 1,
+                            ApplicationUserId = "6da97ebd-175f-4380-a518-0a89beba8783"
+                        });
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WebEminarId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("WebEminarId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("WebEminarId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("WebEminarId");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Report", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<int?>("WebEminarId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("WebEminarId");
+
+                    b.ToTable("Reports");
+                });
+
             modelBuilder.Entity("WebEminari.Data.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -318,11 +554,34 @@ namespace WebEminari.Data.Migrations
                     b.Property<int>("WebEminarId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserLastName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("UserId", "WebEminarId");
+
+                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("WebEminarId");
 
-                    b.ToTable("UserBooking");
+                    b.ToTable("UserBookings");
                 });
 
             modelBuilder.Entity("WebEminari.Data.Models.Vote", b =>
@@ -334,6 +593,12 @@ namespace WebEminari.Data.Migrations
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -348,6 +613,8 @@ namespace WebEminari.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("UserId");
 
@@ -380,8 +647,7 @@ namespace WebEminari.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(600)
-                        .HasColumnType("nvarchar(600)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
@@ -431,6 +697,10 @@ namespace WebEminari.Data.Migrations
                 {
                     b.HasOne("WebEminari.Data.Models.ApplicationUser", null)
                         .WithMany("Claims")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -440,6 +710,10 @@ namespace WebEminari.Data.Migrations
                 {
                     b.HasOne("WebEminari.Data.Models.ApplicationUser", null)
                         .WithMany("Logins")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -447,6 +721,10 @@ namespace WebEminari.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("WebEminari.Data.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
@@ -454,7 +732,7 @@ namespace WebEminari.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("WebEminari.Data.Models.ApplicationUser", null)
-                        .WithMany("Roles")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -467,6 +745,99 @@ namespace WebEminari.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.ChatApplicationUser", b =>
+                {
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Chats")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WebEminari.Data.Models.Chat", "Chat")
+                        .WithMany("ChatApplicationUsers")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Chat");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Comment", b =>
+                {
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("WebEminari.Data.Models.Comment", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
+
+                    b.HasOne("WebEminari.Data.Models.WebEminar", "WebEminar")
+                        .WithMany("Comments")
+                        .HasForeignKey("WebEminarId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Parent");
+
+                    b.Navigation("WebEminar");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Like", b =>
+                {
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", "User")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WebEminari.Data.Models.WebEminar", "WebEminar")
+                        .WithMany("Likes")
+                        .HasForeignKey("WebEminarId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("WebEminar");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Message", b =>
+                {
+                    b.HasOne("WebEminari.Data.Models.Chat", "Chat")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+                });
+
+            modelBuilder.Entity("WebEminari.Data.Models.Report", b =>
+                {
+                    b.HasOne("WebEminari.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Reports")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("WebEminari.Data.Models.Comment", "Comment")
+                        .WithMany()
+                        .HasForeignKey("CommentId");
+
+                    b.HasOne("WebEminari.Data.Models.WebEminar", "WebEminar")
+                        .WithMany()
+                        .HasForeignKey("WebEminarId");
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("WebEminar");
                 });
 
             modelBuilder.Entity("WebEminari.Data.Models.UserBooking", b =>
@@ -508,7 +879,7 @@ namespace WebEminari.Data.Migrations
             modelBuilder.Entity("WebEminari.Data.Models.WebEminar", b =>
                 {
                     b.HasOne("WebEminari.Data.Models.ApplicationUser", "AddedByUser")
-                        .WithMany()
+                        .WithMany("WebEminars")
                         .HasForeignKey("AddedByUserId");
 
                     b.HasOne("WebEminari.Data.Models.Category", "Category")
@@ -524,15 +895,25 @@ namespace WebEminari.Data.Migrations
 
             modelBuilder.Entity("WebEminari.Data.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Chats");
+
                     b.Navigation("Claims");
 
+                    b.Navigation("Comments");
+
+                    b.Navigation("Likes");
+
                     b.Navigation("Logins");
+
+                    b.Navigation("Reports");
 
                     b.Navigation("Roles");
 
                     b.Navigation("UserBookings");
 
                     b.Navigation("Votes");
+
+                    b.Navigation("WebEminars");
                 });
 
             modelBuilder.Entity("WebEminari.Data.Models.Category", b =>
@@ -540,8 +921,19 @@ namespace WebEminari.Data.Migrations
                     b.Navigation("WebEminars");
                 });
 
+            modelBuilder.Entity("WebEminari.Data.Models.Chat", b =>
+                {
+                    b.Navigation("ChatApplicationUsers");
+
+                    b.Navigation("Messages");
+                });
+
             modelBuilder.Entity("WebEminari.Data.Models.WebEminar", b =>
                 {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Likes");
+
                     b.Navigation("UserBookings");
 
                     b.Navigation("Votes");

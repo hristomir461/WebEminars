@@ -6,6 +6,8 @@ namespace WebEminari.Services.Data
 {
     public interface ICategoriesService
     {
+        int GetCount();
+
         IEnumerable<KeyValuePair<string, string>> GetAllAsKeyValuePairs();
     }
 }

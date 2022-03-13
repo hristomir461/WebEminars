@@ -11,6 +11,7 @@
 
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using WebEminari.Data.Infastructure;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
@@ -30,7 +31,20 @@
 
         public DbSet<Vote> Votes { get; set; }
 
+        public DbSet<UserBooking> UserBookings { get; set; }
+
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
+
+        public DbSet<Report> Reports { get; set; }
+
+        public virtual DbSet<Chat> Chats { get; set; }
+
+        public virtual DbSet<Message> Messages { get; set; }
+
+        public virtual DbSet<ChatApplicationUser> ChatApplicationUsers { get; set; }
+        public virtual DbSet<Like> Likes { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -57,6 +71,8 @@
             base.OnModelCreating(builder);
 
             this.ConfigureUserIdentityRelations(builder);
+
+            builder.ConfigureRelations();
 
             EntityIndexesConfiguration.Configure(builder);
 

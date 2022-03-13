@@ -18,10 +18,17 @@ namespace WebEminari.Data.Models
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Votes = new HashSet<Vote>();
             this.UserBookings = new HashSet<UserBooking>();
+            this.Comments = new HashSet<Comment>();
+            this.Chats = new HashSet<ChatApplicationUser>();
+            this.Likes = new HashSet<Like>();
+            this.Reports = new HashSet<Report>();
+            this.WebEminars = new HashSet<WebEminar>();
         }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string ImagePath { get; set; }
         // Audit info
         public DateTime CreatedOn { get; set; }
 
@@ -42,5 +49,14 @@ namespace WebEminari.Data.Models
 
         public virtual ICollection<UserBooking> UserBookings { get; set; }
 
+        public ICollection<Comment> Comments { get; set; }
+
+        public ICollection<ChatApplicationUser> Chats { get; set; }
+
+        public ICollection<Like> Likes { get; set; }
+
+        public ICollection<Report> Reports { get; set; }
+
+        public ICollection<WebEminar> WebEminars { get; set; }
     }
 }

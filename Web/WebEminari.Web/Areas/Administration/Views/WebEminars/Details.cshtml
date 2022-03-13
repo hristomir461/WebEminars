@@ -1,26 +1,33 @@
 ﻿@model WebEminari.Web.ViewModels.WebEminars.WebEminarViewModel
+@using Ganss.XSS;
 @{
     this.ViewData["Title"] = Model.Title;
     int maxStars = 5;
+    var sanitizer = new HtmlSanitizer();
+    sanitizer.AllowedSchemes.Add("data");
     bool isLoggedIn = User.Identity.IsAuthenticated;
     bool userCanBook = isLoggedIn && !Model.UsersBooked.Contains(User.Identity.Name) && Model.MaxPeople > 0;
 }
-
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 <p>От: @Model.AddedByUserFirstName @Model.AddedByUserLastName</p>
-<li class="single-meta">
-    <ul class="item-rating">
-        @for (int i = 1; i <= maxStars; i++)
-        {
-            if (i <= Model.AverageVote)
-            {
-                <li class="star-fill" data-vote="@i"><i class="fas fa-star"></i></li>
-            }
-            else
-            {
-                <li data-vote="@i"><i class="fas fa-star"></i></li>
-            }
-        }
-        <li><span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / @maxStars</span> </li>
+        <input type="hidden" id="stars" value="@Model.AverageVote" />
+        <div id="app">
+            <star-rating v-model="rating" :max-stars="5"></star-rating>
+            <span id="averageVoteValue">@Model.AverageVote.ToString("0.0")</span><span> / @maxStars</span>
+
+            <template id="star-rating-template">
+                <span>
+
+                    <i style="font-size: 20px" v-for="(n, index) in maxStars"
+                       :class="getClass(n)"
+                       :style="getStyle(n)"
+                       v-on:click="$emit('input', n)"><i style="color: transparent">{{index + 1}}</i></i>
+
+                </span>
+            </template>
+        </div>
+
     </ul>
 </li>
 <br />
@@ -39,7 +46,7 @@
                 frameborder="0"
                 allowfullscreen></iframe>
     }
-    <p style="font-size: 20px">@Html.Raw(Model.Description)</p>
+    <p>@Html.Raw(sanitizer.Sanitize(Model.Description))</p>
 </center>
 @if (Model.ImageName != null)
 {
@@ -54,10 +61,11 @@
     {
         <p>@user</p>
     }
+
 }
 @if (Model.ImageName != null && Model.DateTime >= DateTime.UtcNow)
 {
-    <h4>Aveilable bookings: @Model.MaxPeople</h4>
+    <h4>Aveilable bookings: @Model.MaxPeople</h4>   
 }
 @if (Model.ImageName != null && Model.DateTime <= DateTime.UtcNow)
 {
@@ -67,21 +75,6 @@
 {
     <h4>Kachen</h4>
 }
-<style>
-    ul li.star-fill i {
-        color: orange;
-    }
-
-    ul {
-        list-style-type: none;
-        float: right;
-    }
-
-    li {
-        list-style-type: none;
-        float: left;
-    }
-</style>
 @if (userCanBook)
 {
     <form method="post" asp-action="BookForEvent">
@@ -93,12 +86,49 @@
         }
     </form>
 }
+
 <form method="post" id="antiForgeryForm"></form>
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
     <script>
-        $("li[data-vote]").each(function (el) {
-            $(this).click(function () {
-                var value = $(this).attr("data-vote");
+        Vue.component("star-rating", {
+            props: {
+                value: { type: Number, default: 0 },
+                maxStars: { type: Number, default: 5 },
+                starredColor: { type: String, default: "orange" },
+                blankColor: { type: String, default: "darkgray" }
+            },
+            template: "#star-rating-template",
+            methods: {
+                getClass(n) {
+                    return {
+                        "fa": true,
+                        "fa-star": n <= this.value,
+                        "fa-star-o": n > this.value
+                    }
+                },
+                getStyle(n) {
+                    return {
+                        color: n <= this.value ? this.starredColor : this.blankColor
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: "#app",
+            data: {
+                rating: @Model.AverageVote
+            }
+        })
+
+    </script>
+    <script>
+         $("i").each(function (el) {
+             $(this).click(function () {
+                 var value = $(this.innerHTML).html();
                 var webEminarId = @Model.Id;
                 var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
                 var data = { webEminarId: webEminarId, value: value };

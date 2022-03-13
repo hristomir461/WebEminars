@@ -4,63 +4,160 @@
     this.ViewData["Title"] = "WebEminars";
     var categoryItems = this.Model.CategoriesItems.Select(x => new SelectListItem(x.Value, x.Key));
 }
-<h1>@this.ViewData["Title"]</h1>
-<hr />
-<center>
-    <form asp-controller="WebEminars" asp-action="All" method="get">
-        <div class="col-md-6">
-            <div class="input-group input-group-lg">
-                <input type="text" id="" name="SearchString" class="form-control" placeholder="What search?" />
-                <select class="form-control form-control-lg rounded-0" asp-for="@Model.CategoryId" asp-items="categoryItems">
-                    <option value="0">All</option>
-                </select>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" value="Filter"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div>
-    </form>
-    <br />  
-    <form action="All" method="get">
-        <button name="stateFilter" value="Kachen" asp-action="All">Kachen</button>
-        <button name="stateFilter" value="Izminal" asp-action="All">Izminal</button>
-        <button name="stateFilter" value="Available" asp-action="All">Available</button>
-    </form>
-</center>
-<br />
-<div class="row">
-    @foreach (var webEminar in this.Model.WebEminars)
-    {
-        <div class="card col-md-4">
-            <h5 class="card-title text-center">
-                <a asp-action="Details" asp-route-id="@webEminar.Id">
-                    @webEminar.Title
-                </a>
-            </h5>
-            @if (webEminar.ImageName != null)
-            {
-                <img class="card-img-top" src="~/Images/@webEminar.ImageName" width="100" height="300" alt="Card image cap">
-            }
-            else
-            {
-                <img class="card-img-top" src="@webEminar.ThumbnailUrl" width="100" height="300" />
-            }
-            <div class="card-body">
-                <p class="card-text text-center">@webEminar.CategoryName</p>
-                @if (webEminar.ImageName != null && webEminar.DateTime >= DateTime.UtcNow)
-                {
-                    <p class="card-text text-center"><small class="text-muted">@webEminar.DateTime.ToShortDateString() @webEminar.DateTime.ToShortTimeString()</small></p>
-                }
-                else if (webEminar.ImageName == null)
-                {
-                    <p class="card-text text-center"><small class="text-muted">Качен</small></p>
-                }
-                else
-                {
-                    <p class="card-text text-center"><small class="text-muted">Izminal</small></p>
-                }
-            </div>
-        </div>
+<style>
+    :root {
+        --color-one: #e6e6ff;
+        --color-two: #1a1aff;
+        --color-three: #b3b3ff;
     }
+
+    card-title {
+        font-size: 5px;
+    }
+
+    ul li.star-fill i {
+        color: orange;
+    }
+
+    ul.stars {
+        position: relative;
+        margin-left: -20px;
+        margin-bottom: 10px;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+    }
+
+    .card {
+        border: 1px solid var(--color-three);
+        margin-bottom: 20px;
+        transition: border 0.1s, transform 0.3s;
+    }
+
+        .card:hover {
+            border: 1px solid var(--color-two);
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+            cursor: pointer;
+        }
+
+        .card .card-body h2 {
+            color: var(--color-two);
+        }
+
+        .card img:hover {
+            opacity: 0.6;
+        }
+
+    .card-p {
+        color: var(--color-three);
+    }
+
+        .card-p i {
+            color: var(--color-two);
+            margin-right: 8px;
+        }
+
+    #app {
+        width: 100%;
+        height: 100%;
+        max-width: 1080px;
+        min-height: 460px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <div class="body-wrap boxed-container">
+        <main>
+            <br />  <br />  <br />
+            <center>
+                <form asp-controller="WebEminars" asp-action="All" method="get">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-lg">
+                            <input type="text" id="" name="SearchString" class="form-control" placeholder="What search?" />
+                            <select class="form-control form-control-lg rounded-0" asp-for="@Model.CategoryId" asp-items="categoryItems">
+                                <option value="0">All</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" value="Filter"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <form action="All" method="get">
+                    <button class="btn btn-info" name="stateFilter" value="Kachen" asp-action="All">Качени</button>
+                    <button class="btn btn-primary" name="stateFilter" value="Izminal" asp-action="All">Изминали</button>
+                    <button class="btn btn-success" name="stateFilter" value="Available" asp-action="All">Предстоящи</button>
+                </form>
+            </center>
+            <div class="row" style="margin-top: 200px;margin-left: 50px;margin-right: 50px">
+                @foreach (var webEminar in this.Model.WebEminars)
+                {
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" asp-controller="WebEminars" asp-action="Details" asp-route-id="@webEminar.Id">
+                        <div class="card shadow">
+                            @if (webEminar.ImageName != null)
+                            {
+                                <img src="~/Images/@webEminar.ImageName" alt="Card image cap">
+                            }
+                            else
+                            {
+                                <img class="card-img-top" src="@webEminar.ThumbnailUrl" width="100" height="300" />
+                            }
+                            <div class="card-body">
+                                <h2 style="font-size: 30px;margin-top: 10px" class="card-title">@webEminar.Title</h2>
+                                <p>@webEminar.CategoryName</p>
+                                @if (webEminar.ImageName != null && webEminar.DateTime >= DateTime.UtcNow)
+                                {
+                                    <p class="card-text"><small class="text-muted">@webEminar.DateTime.ToShortDateString() @webEminar.DateTime.ToShortTimeString()</small></p>
+                                }
+                                else if (webEminar.ImageName == null)
+                                {
+                                    <p class="card-text"><small class="text-muted">Качен</small></p>
+                                }
+                                else
+                                {
+                                    <p class="card-text"><small class="text-muted">Изминал</small></p>
+                                }
+                                @{
+                                    Regex regex2 = new Regex("<.*?>|&.*?;", RegexOptions.Singleline);
+                                    var x = webEminar.Description;
+
+                                    string Decription = regex2.Replace(x, " ").Trim();
+                                }
+                                <p class="card-text">@Decription.Substring(0, 80)</p>
+                            </div>
+                            <center>
+                                <div class="card-body card-p">
+                                    <div class="row">
+                                        <div class="col col-xs-4 ">
+                                            <i class="far fa-comments"></i> @webEminar.CommentsCount
+                                        </div>
+                                        <div class="col col-xs-4 ">
+                                            <i class="far fa-heart"></i> @webEminar.LikesCount
+                                        </div>
+                                        <div class="col col-xs-4">
+                                            <i class="far fa-star"></i> @webEminar.AverageVote
+                                        </div>
+                                    </div>
+                                </div>
+                            </center>
+                            <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@webEminar.Id" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+
+
+                }
+
+            </div>
+            <partial name="_PagingPartial" model="@Model" />
 </div>
-<partial name="_PagingPartial" model="@Model" />
+           

@@ -8,7 +8,9 @@ using System.Text.RegularExpressions;
 using AutoMapper;
 
 using WebEminari.Data.Models;
+using WebEminari.Data.Common;
 using WebEminari.Services.Mapping;
+using WebEminari.Common;
 
 namespace WebEminari.Web.ViewModels.WebEminars
 {
@@ -20,21 +22,7 @@ namespace WebEminari.Web.ViewModels.WebEminars
         [Required]
         public string Video { get; set; }
 
-        public static string GetYouTubeId(string url)
-        {
-            var regex = @"(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|watch)\/|.*[?&amp;]v=)|youtu\.be\/)([^""&amp;?\/ ]{11})";
-
-            var match = Regex.Match(url, regex);
-
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-
-            return url;
-        }
-
-        private string VideoId => GetYouTubeId(this.Video);
+        private string VideoId =>  GlobalMethods.GetYouTubeVideoIdFromUrl(this.Video);
 
         public string VideoUrl => $"https://www.youtube.com/embed/{this.VideoId}";
 
@@ -48,9 +36,7 @@ namespace WebEminari.Web.ViewModels.WebEminars
                    .ForMember(x => x.AverageVote, opt =>
                     opt.MapFrom(x => x.Votes.Count == 0 ? 0 : x.Votes.Average(v => v.Value)))
                    .ForMember(x => x.UsersBooked, opt =>
-                      opt.MapFrom(x => x.UserBookings.Select(y => y.User.UserName)))
-                    .ForMember(x => x.UsersNamesBooked, opt =>
-                      opt.MapFrom(x => x.UserBookings.Select(y => y.User.FirstName + y.User.LastName)));
+                      opt.MapFrom(x => x.UserBookings.Select(y => y.User.UserName)));
         }
     }
 }

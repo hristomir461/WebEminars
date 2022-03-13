@@ -20,9 +20,9 @@ H:\Hristomir\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\We
 D:\Projects\WebEminars\Services\WebEminari.Services\bin\Debug\netstandard2.1\WebEminari.Services.deps.json
 D:\Projects\WebEminars\Services\WebEminari.Services\bin\Debug\netstandard2.1\WebEminari.Services.dll
 D:\Projects\WebEminars\Services\WebEminari.Services\bin\Debug\netstandard2.1\WebEminari.Services.pdb
-D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.csprojAssemblyReference.cache
 D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.AssemblyInfoInputs.cache
 D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.AssemblyInfo.cs
 D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.csproj.CoreCompileInputs.cache
 D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.dll
 D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.pdb
+D:\Projects\WebEminars\Services\WebEminari.Services\obj\Debug\netstandard2.1\WebEminari.Services.csprojAssemblyReference.cache

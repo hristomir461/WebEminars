@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\WebEminari.Data.Common\WebEminari.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\WebEminari.Data.Models\WebEminari.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\WebEminari.Data\WebEminari.Data.csproj" />
     <ProjectReference Include="..\..\Web\WebEminari.Web.ViewModels\WebEminari.Web.ViewModels.csproj" />
     <ProjectReference Include="..\WebEminari.Services.Mapping\WebEminari.Services.Mapping.csproj" />
   </ItemGroup>

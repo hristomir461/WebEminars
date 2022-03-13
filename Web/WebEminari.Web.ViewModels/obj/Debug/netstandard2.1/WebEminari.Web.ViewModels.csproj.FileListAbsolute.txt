@@ -47,3 +47,5 @@ D:\Projects\WebEminars\Web\WebEminari.Web.ViewModels\obj\Debug\netstandard2.1\We
 D:\Projects\WebEminars\Web\WebEminari.Web.ViewModels\obj\Debug\netstandard2.1\WebEminari.Web.ViewModels.csproj.CopyComplete
 D:\Projects\WebEminars\Web\WebEminari.Web.ViewModels\obj\Debug\netstandard2.1\WebEminari.Web.ViewModels.dll
 D:\Projects\WebEminars\Web\WebEminari.Web.ViewModels\obj\Debug\netstandard2.1\WebEminari.Web.ViewModels.pdb
+D:\Projects\WebEminars\Web\WebEminari.Web.ViewModels\bin\Debug\netstandard2.1\WebEminari.Common.dll
+D:\Projects\WebEminars\Web\WebEminari.Web.ViewModels\bin\Debug\netstandard2.1\WebEminari.Common.pdb

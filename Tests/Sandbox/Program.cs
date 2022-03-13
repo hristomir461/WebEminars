@@ -23,9 +23,10 @@
 
     public static class Program
     {
-        public static int Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine($"{typeof(Program).Namespace} ({string.Join(" ", args)}) starts working...");
+            Console.WriteLine("Sandbox");
+            /*Console.WriteLine($"{typeof(Program).Namespace} ({string.Join(" ", args)}) starts working...");
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
             IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider(true);
@@ -81,7 +82,7 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<ISettingsService, SettingsService>();*/
         }
     }
 }

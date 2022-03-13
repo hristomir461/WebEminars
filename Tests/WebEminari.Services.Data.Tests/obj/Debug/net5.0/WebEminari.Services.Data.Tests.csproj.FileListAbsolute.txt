@@ -592,3 +592,13 @@ D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\obj\Debug\net5.0\Web
 D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\obj\Debug\net5.0\ref\WebEminari.Services.Data.Tests.dll
 D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\obj\Debug\net5.0\WebEminari.Services.Data.Tests.pdb
 D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\obj\Debug\net5.0\WebEminari.Services.Data.Tests.genruntimeconfig.cache
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\System.Web.Mvc.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\System.Web.Razor.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\System.Web.Helpers.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\System.Web.WebPages.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\AngleSharp.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\AngleSharp.Css.dll
+D:\Projects\WebEminars\Tests\WebEminari.Services.Data.Tests\bin\Debug\net5.0\HtmlSanitizer.dll

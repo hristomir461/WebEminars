@@ -108,6 +108,9 @@
             "projectReferences": {
               "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
                 "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
+              },
+              "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj"
               }
             }
           }
@@ -122,6 +125,10 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.12, )"
@@ -297,6 +304,9 @@
               },
               "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
                 "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
+              },
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data\\WebEminari.Data.csproj"
               },
               "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
                 "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
@@ -610,11 +620,17 @@
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
+              "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Common\\WebEminari.Data.Common.csproj"
+              },
               "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj": {
                 "projectPath": "D:\\Projects\\WebEminars\\Data\\WebEminari.Data.Models\\WebEminari.Data.Models.csproj"
               },
               "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj": {
                 "projectPath": "D:\\Projects\\WebEminars\\Services\\WebEminari.Services.Mapping\\WebEminari.Services.Mapping.csproj"
+              },
+              "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj": {
+                "projectPath": "D:\\Projects\\WebEminars\\WebEminari.Common\\WebEminari.Common.csproj"
               }
             }
           }
@@ -629,6 +645,14 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[6.0.453, )"
+            },
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[2.2.5, )"
@@ -638,6 +662,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[1.2.0-beta.312, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [

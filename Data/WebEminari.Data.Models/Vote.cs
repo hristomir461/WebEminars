@@ -6,7 +6,7 @@ using WebEminari.Data.Common.Models;
 
 namespace WebEminari.Data.Models
 {
-    public class Vote : BaseModel<int>
+    public class Vote : BaseDeletableModel<int>
     {
     public int WebEminarId { get; set; }
 

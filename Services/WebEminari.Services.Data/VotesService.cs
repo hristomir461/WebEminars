@@ -17,7 +17,10 @@ namespace WebEminari.Services.Data
         {
             this.votesRepository = votesRepository;
         }
-
+        public int GetCount()
+           => this.votesRepository
+          .All()
+          .Count();
         public async Task SetVoteAsync(int webEminarId, string userId, byte value)
         {
             var vote = this.votesRepository.All()

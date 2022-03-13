@@ -8,7 +8,7 @@
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
-    public class SendGridEmailSender : IEmailSender
+    public class SendGridEmailSender : IEmailGridSender
     {
         private readonly SendGridClient client;
 

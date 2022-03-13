@@ -6,54 +6,64 @@
 }
 
 <h1>Edit</h1>
-
 <h4>WebEminar</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-                <div class="form-group">
-                    <label asp-for="Image" class="control-label"></label>
-                    <input asp-for="Image" class="form-control" />
-                    <span asp-validation-for="Image" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MeetLink" class="control-label"></label>
-                    <input asp-for="MeetLink" class="form-control" />
-                    <span asp-validation-for="MeetLink" class="text-danger"></span>
-                </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" id="editor"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="categoryItems"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Save" class="btn btn-primary" />
-
-        </form>
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
     </div>
-</div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label"></label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MeetLink" class="control-label"></label>
+        <input asp-for="MeetLink" class="form-control" />
+        <span asp-validation-for="MeetLink" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxPeople" class="control-label"></label>
+        <input asp-for="MaxPeople" class="form-control" />
+        <span asp-validation-for="MaxPeople" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" id="myEditor"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId" class="control-label"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="categoryItems"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateTime" class="control-label"></label>
+        <input asp-for="DateTime" class="form-control" />
+        <span asp-validation-for="DateTime" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Save" class="btn btn-primary" />
+
+</form>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    <script src="~/ckeditor/ckeditor.js"></script>
-
-    <script>
-        CKEDITOR.replace("editor");
+    <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "#myEditor",
+            plugins: [
+                "image paste table link code media"
+            ]
+        });
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

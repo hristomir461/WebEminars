@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Mvc;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+using WebEminari.Common;
 using WebEminari.Data.Common.Models;
 
 namespace WebEminari.Data.Models
@@ -19,6 +23,8 @@ namespace WebEminari.Data.Models
         {
             this.Votes = new HashSet<Vote>();
             this.UserBookings = new HashSet<UserBooking>();
+            this.Comments = new HashSet<Comment>();
+            this.Likes = new HashSet<Like>();
         }
 
         [Required]
@@ -31,7 +37,6 @@ namespace WebEminari.Data.Models
         public IFormFile Image { get; set; }
 
         [Required]
-        [MaxLength(600)]
         public string Description { get; set; }
 
         [MaxLength(50)]
@@ -54,21 +59,7 @@ namespace WebEminari.Data.Models
         [Url]
         public string Video { get; set; }
 
-        public static string GetYouTubeId(string url)
-        {
-            var regex = @"(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|watch)\/|.*[?&amp;]v=)|youtu\.be\/)([^""&amp;?\/ ]{11})";
-
-            var match = Regex.Match(url, regex);
-
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-
-            return url;
-        }
-
-        private string VideoId => GetYouTubeId(this.Video);
+        private string VideoId => GlobalMethods.GetYouTubeVideoIdFromUrl(this.Video);
 
         public string ThumbnailUrl => $"https://i.ytimg.com/vi/{this.VideoId}/mqdefault.jpg";
 
@@ -77,6 +68,10 @@ namespace WebEminari.Data.Models
         public virtual ICollection<Vote> Votes { get; set; }
 
         public virtual ICollection<UserBooking> UserBookings { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        public ICollection<Like> Likes { get; set; }
     }
 }
 

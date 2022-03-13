@@ -13,6 +13,7 @@
     using WebEminari.Services.Messaging;
     using WebEminari.Web.ViewModels;
 
+    
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -21,24 +22,45 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using WebEminari.Web.ViewModels.WebEminars;
+    using WebEminari.Web.Services;
+    using Microsoft.AspNetCore.Identity.UI.Services;
+    using WebEminari.Web.Hubs;
 
     public class Startup
     {
         private readonly IConfiguration configuration;
 
-        public Startup(IConfiguration configuration)
+        public IWebHostEnvironment WebHostEnvironment { get; private set; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             this.configuration = configuration;
+            this.WebHostEnvironment = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+            services.AddHttpContextAccessor();
+
+            services.AddSignalR();
+
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
+            services.AddDefaultIdentity<ApplicationUser>(options => 
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            })
                 .AddRoles<ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<CookiePolicyOptions>(
@@ -62,6 +84,7 @@
                 options.HeaderName = "X-CSRF-TOKEN";
             });
 
+
             services.AddSingleton(this.configuration);
 
             // Data repositories
@@ -70,11 +93,20 @@
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
-            services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IEmailGridSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IWebEminarsService, WebEminarsService>();
             services.AddTransient<IVotesService, VotesService>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IProfileService, ProfileService>();
+            services.AddTransient<IViewComponentsService, ViewComponentsService>();
+            services.AddTransient<ICommentsService, CommentsService>();
+            services.AddTransient<IReportsService, ReportsService>();
+            services.AddTransient<IChatService, ChatService>();
+            services.AddTransient<ILikesService, LikesService>();
+            services.AddTransient<IInformationService, InformationService>();
+            services.AddTransient<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,10 +132,9 @@
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
 
             app.UseRouting();
 
@@ -113,6 +144,7 @@
             app.UseEndpoints(
                 endpoints =>
                     {
+                        endpoints.MapHub<ChatHub>("/chatHub");
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();

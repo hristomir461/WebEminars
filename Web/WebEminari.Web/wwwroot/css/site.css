@@ -1,74 +1,194 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿
+.slider {
+    white-space: nowrap;
+    width: 899px;
+    height: 460px;
+    overflow: hidden;
+    padding: 20px;
+}
 
-a.navbar-brand {
-    white-space: normal;
+.slider__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: 0.5s ease;
+}
+
+.slider__wrapper__item {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.slider__wrapper__item .cover {
+     background-size: cover;
+     background-position: center center;
+     background-color: rgba(255, 86, 101, 0.6);
+     background-blend-mode: screen;
+     transition: 0.5s;
+     box-shadow: 0 5px 30px rgba(248, 67, 83, 0.4);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.slider__wrapper__item .cover .info {
+     width: 540px;
+     height: 100px;
+     color: #fff;
+     text-align: right;
+     transition: 0.5s;
+}
+
+.slider__wrapper__item .cover .info h2 {
+     line-height: 2;
+     font-size: 1.8rem;
+     white-space: pre-wrap;
+     word-wrap: break-word;
+}
+
+.slider__wrapper__item .cover .info h2 span {
+     padding: 5px;
+     background: rgba(237, 110, 160, 0.6);
+}
+
+.slider__wrapper__item .cover .info h5 {
+     margin-top: 25px;
+     text-shadow: 0px 0px 30px rgba(248, 67, 83, 0.4);
+     font-family: "Arial", sans-serif;
+     font-style: italic;
+     font-size: 0.95rem;
+}
+
+.slider__wrapper__item .cover .info h5 span {
+   padding: 5px;
+   background: rgba(237, 110, 160, 0.6);
+}
+
+.arrow-left,
+.arrow-right {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    color: black;
     text-align: center;
-    word-break: break-all;
+    line-height: 40px;
+    border-radius: 99%;
+    transition: 0.5s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-    color: #0366d6;
+.arrow-left:hover,
+.arrow-right:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: grey;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.arrow-left {
+    top: calc(50% - 20px);
+    left: 50px;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.arrow-right {
+    top: calc(50% - 20px);
+    right: 30px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    font-size: 14px;
+.now_item .cover {
+    animation: fadeIn 1.2s 0.1s ease both;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
+.now_item .cover .info {
+   animation: sliceIn 1s 0.2s ease both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
-.border-top {
-    border-top: 1px solid #e5e5e5;
+@media screen and (min-width: 768px) {
+    .slider__wrapper__item .cover {
+        width: 90%;
+        height: 80%;
 }
 
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
+.slider__wrapper__item .cover:hover {
+        width: 700px;
+        height: 400px;
 }
 
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.slider__wrapper__item .cover .info {
+        transform: translateX(-250px);
 }
 
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
+ @keyframes sliceIn {
+     0% {
+        transform: translateX(-280px);
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
+        100% {
+            transform: translateX(-250px);
+        }
+    }
+
+@media screen and (max-width: 767px) {
+    .slider__wrapper__item .cover {
+        width: 80%;
+        height: 100%;
+        margin: 0 10% 0 10%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
+.slider__wrapper__item .cover:hover {
+        width: 83%;
+        height: 103%;
 }
 
+.slider__wrapper__item .cover .info {
+        transform: translateX(0px);
+}
+
+    @keyframes sliceIn {
+        0% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(10px);
+        }
+    }
+[v-cloak] {
+    display: none;
+}
+
+/* Sticky footer styles */
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    /*white-space: nowrap;*/
+    /*line-height: 60px;*/ /* Vertically center the text there */
+    line-height: 30px; /* Vertically center the text there */
+}
+/* responsive footer */
+@media (max-device-width: 457px) {
+    .footer > .container {
+        font-size: .95rem;
+    }
+}
+
+@media (max-device-width: 436px) {
+    .footer > .container {
+        font-size: .9rem;
+    }
 }
