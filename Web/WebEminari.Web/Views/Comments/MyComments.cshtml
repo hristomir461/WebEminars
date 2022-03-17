@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebEminari.Web.ViewModels.Comments.CommentByMeModel>
+@{
+    ViewData["Title"] = "Comments created by me";
+}
+    <div class="row">
+        @foreach (var comment in Model)
+        {
+
+<div class="card border-info mb-3" style="max-width: 18rem;margin: 20px;">
+    <div class="card-header">@comment.Content</div>
+    <div class="card-body text-info">
+        <h5 class="card-title"><small><time datetime="@comment.CreatedOn.ToString("O")">@comment.CreatedOn.ToString("g")</time></small></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@comment.WebEminarId" class="btn btn-sm btn-outline-info mb-2">
+            <i class="fas fa-sync-alt"></i> Details
+        </a>
+        <div class="mt-3">
+            <a asp-controller="Comments" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-sm btn-outline-success mb-2">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a asp-controller="Comments" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-sm btn-outline-danger mb-2">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
+    </div>
+</div>}
+    </div>
+    @if (!Model.Any())
+    {
+<h3 class="text-center">Нямате написани коментари</h3>
+                <hr />}
+    @if (this.User.IsInRole("Administrator"))
+    {
+<a class="btn btn-primary" asp-area="Administration" asp-controller="Comments" asp-action="Index">Back to admin</a> }
+else
+{
+<a class="btn btn-primary" asp-action="WebEminarsComments">Back to admin</a>}
+</div>
+
+
+@section Scripts {
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+    <script src="https://unpkg.com/plyr@3"></script>
+
+    <script>
+        const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
+        window.player = player;
+    </script>
+}

@@ -1,0 +1,126 @@
+﻿@model IEnumerable<OrganizationViewModel>
+@{ ViewData["Title"] = "Joined organizations"; }
+
+<div class="container bg-base bg-solid pl-5 pr-5 text-center">
+    <h3 class="mt-2 mb-4">@ViewData["Title"]</h3>
+
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Member count
+                            </th>
+                            <th>
+                                Creator
+                            </th>
+                            <th>
+                                Date Created
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var organization in @Model)
+                        {
+            <tr>
+                <td>
+                    @organization.Name
+                </td>
+                <td>
+                    @organization.Description
+                </td>
+                <td>
+                    @organization.UsersCount
+                </td>
+                <td>
+                    @organization.CreatorUserName
+                </td>
+                <td>
+                    <time datetime="@organization.CreatedOn.ToString("O")">
+                        @organization.CreatedOn.ToString("g")
+                    </time>
+                </td>
+                <td>
+
+                    @{ string userId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                                        var isMember = organization.Users
+                                            .Any(x => x.Id == userId);
+
+                                        var isCreator = userId == organization.CreatorId; }
+
+                    @if (isMember)
+                    {
+    <a asp-controller="Organization" asp-action="Leave" asp-route-id="@organization.Id"
+       class="btn btn-sm btn-outline-danger mb-1">
+        Leave
+    </a> }
+                    else
+                    {
+    <a asp-controller="Organization" asp-action="Join" asp-route-id="@organization.Id"
+       class="btn btn-sm btn-outline-success mb-1">
+        Join
+    </a>}
+
+                    <a asp-controller="Organization" asp-action="View" asp-route-id="@organization.Id"
+                       class="btn btn-sm btn-outline-primary mb-1">
+                        View
+                    </a>
+
+                    @if (isCreator)
+                    {
+    <a asp-controller="Organization" asp-action="Edit" asp-route-id="@organization.Id"
+       class="btn btn-sm btn-outline-warning mb-1">
+        Edit
+    </a>
+
+                        <form method="post" asp-area="" asp-controller="Organization" asp-action="Delete" asp-route-id="@organization.Id">
+                            <button type="button" class="btn btn-sm btn-outline-danger mb-1"
+                                    data-toggle="modal" data-target="#confirmModal">
+                                Delete
+                            </button>
+
+                            <!-- Submit Modal -->
+                            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmModalLabel">Delete organization</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-body container">
+                                            <div>Are you sure that you want to delete this organization?</div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" value="Submit" class="btn btn-sm btn-outline-danger">
+                                                Delete
+                                            </button>
+
+                                            <button type="button" class="btn btn-sm btn-outline-dark" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>}
+                </td>
+            </tr>}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

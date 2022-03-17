@@ -1,0 +1,226 @@
+﻿@model Chat
+@{ ViewData["Title"] = $"Chat #{Model.Id} - {Model.Name}"; }
+
+<div class="container chat-container">
+    <div class="row no-gutters">
+        <div class="col-md-4 border-right all-chats-panel">
+            <div class="settings-tray">
+                @* <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/filip.jpg" alt="Profile img"> *@
+                <span class="black-text">Chats</span>
+
+                <span class="settings-tray--right">
+
+                    <span type="button" id="create-room" data-toggle="modal" data-target="#chatModal">
+                        <i class="fas fa-plus"></i>
+                    </span>
+
+
+                </span>
+            </div>
+
+
+            @await Component.InvokeAsync("Room")
+        </div>
+        <div class="col-md-8 main-panel">
+            <div class="settings-tray">
+                <div class="friend-drawer no-gutters friend-drawer--grey">
+
+                    <span class="black-text">
+                        @Model.Name
+                    </span>
+
+                    <span class="settings-tray--right">
+
+                    </span>
+                </div>
+            </div>
+            <div class="chat-panel">
+                @foreach (var message in Model.Messages)
+                {
+    <div class="row no-gutters single-message">
+        @if (message.Name == User?.Identity?.Name)
+        {
+<div class="col-md-3 offset-md-9">
+    <div class="chat-bubble chat-bubble--right">
+        <div><strong>@message.Name</strong>:</div>
+        <span>@message.Text</span>
+    </div>
+
+    <small class="text-muted pl-4">
+        <time datetime="@message.CreatedOn.ToString("O")">@message.CreatedOn.ToString("g")</time>
+    </small>
+</div> }
+                else
+                {
+<div class="col-md-3">
+    <div class="chat-bubble chat-bubble--left black-text">
+        <div><strong>@message.Name</strong>:</div>
+        <span>@message.Text</span>
+    </div>
+
+    <small class="text-muted ml-5">
+        <time datetime="@message.CreatedOn.ToString("O")">@message.CreatedOn.ToString("g")</time>
+    </small>
+</div>}
+    </div>}
+            </div>
+
+            <form onsubmit="sendMessage(event)" asp-controller="Chat" asp-action="SendMessage" method="post">
+                <div class="row message-box">
+                    <div class="col-12">
+                        <div class="chat-box-tray hoverable">
+
+                            <input type="hidden" name="roomId" value="@Model.Id" />
+                            <input type="text" name="message" id="message-input" placeholder=" Type your message here...">
+                            <input type="button" class="fas" id="emoji-picker-button" value="&#xf580;" />
+                            <input type="submit" class="fas send-button" value="&#xf1d8;" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- New Chat Modal -->
+<div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chatModalLabel">Create new room</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form asp-area="" asp-controller="Chat" asp-action="CreateRoom" method="post">
+                <div class="modal-body container">
+                    <div class="black-text">
+                        <div>
+                            Provide name for the chat.
+                        </div>
+                        <small class="text-muted">Must not be empty, a space or tab character.</small>
+                    </div>
+                </div>
+                <div class="container">
+                    <input type="text" name="name" value="" class="mb-3 form-control" />
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-sm btn-outline-success" value="Create">Create</button>
+                    <button type="button" class="btn btn-sm btn-outline-dark" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/emoji-button@latest/dist/index.min.js"></script>
+    @* <script src="https://cdn.jsdelivr.net/npm/@@joeattardi/emoji-button@4.6.2/dist/index.min.js"></script> *@
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/messageBuilder.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let mainChatPanel = $('.main-panel');
+
+        let username = "@User?.Identity?.Name";
+
+        let connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        let _connectionId = '';
+
+        connection.on("ReceiveMessage", function (data) {
+            let senderIsCurrentUser = data.name === username;
+            let containerClassList = senderIsCurrentUser ?
+                ["col-md-3", "offset-md-9"] :
+                ["col-md-3"];
+
+            let bubbleStyles = senderIsCurrentUser ?
+                ["chat-bubble", "chat-bubble--right"] :
+                ["chat-bubble", "chat-bubble--left", "black-text"];
+
+            let footerClassList = senderIsCurrentUser ?
+                ["text-muted", "pl-4"] :
+                ["text-muted", "ml-5"];
+
+            let message = messageBuilder()
+                .createMessage(["row", "no-gutters"])
+                .withContainer("single-message", containerClassList)
+                .withBubbles(bubbleStyles)
+                .withHeader(data.name) // escapeHtml(data.name)
+                .withParagraph(data.text) // escapeHtml(data.text)
+                .withFooter(data.createdOn, footerClassList) // escapeHtml(data.createdOn), footerClassList
+                .build();
+
+            document.querySelector('.chat-panel').append(message);
+
+            // on every message received, scroll to bottom
+            scrollToBottom();
+        })
+
+        connection.start()
+            .then(function () {
+                connection.invoke('joinRoom', '@Model.Id');
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+
+        window.addEventListener('onunload', function () {
+            connection.invoke('leaveRoom', '@Model.Id');
+        });
+
+        let sendMessage = function (event) {
+            event.preventDefault();
+
+            let data = new FormData(event.target);
+            document.getElementById('message-input').value = '';
+
+            // if (typeof data.text === "undefined") return;
+            axios.post('/Chat/SendMessage', data)
+                .then(res => {
+                    // console.log("Message sent!");
+                })
+                .catch(err => {
+                    console.log("Failed to send a message!", err);
+                })
+        }
+
+        function scrollToBottom() {
+            mainChatPanel.scrollTop(mainChatPanel[0].scrollHeight);
+        }
+
+        // initially, scroll to bottom of the chat
+        scrollToBottom();
+
+		// live-chat animation scripts
+		$('.friend-drawer--onhover').on('click', function() {
+          $('.chat-bubble').hide('slow');
+          // $( '.chat-bubble' ).hide('slow').show('slow');
+        });
+
+        let input = document.getElementById('message-input');
+        let button = document.getElementById('emoji-picker-button');
+
+        let picker = new EmojiButton({
+            position: 'right-start'
+        });
+
+        picker.on('emoji', function (emoji) {
+            input.value += emoji;
+        });
+
+        button.addEventListener('click', function () {
+            picker.pickerVisible ? picker.hidePicker() : picker.showPicker(input)
+        });
+    </script>
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/chat-style.css")" rel="stylesheet" type="text/css" />
+    @* <link href="@Url.Content("~/css/background.css")" rel="stylesheet" type="text/css"/> *@
+}

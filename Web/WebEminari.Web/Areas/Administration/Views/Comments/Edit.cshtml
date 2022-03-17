@@ -1,0 +1,87 @@
+﻿@model AdminCommentEditModel
+@{ ViewData["Title"] = "Edit a comment"; }
+
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Edit</h6>
+        </div>
+
+        <div class="card-body">
+
+            <h4>Коментар</h4>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-3 col-md-6 text-center">
+                        <h2>Уеб семинар</h2>
+                        <hr />
+
+                        <div class="card">
+
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h5 class="card-title">@Model.WebEminarTitle</h5>
+                                    <hr />
+                                    <p class="card-text">@Html.Raw(Model.WebEminarDescription)</p>
+                                    <p class="small text-muted mt-3">Category - @Model.WebEminarCategoryName</p>
+                                    <p class="small text-muted">Created by - @Model.WebEminarAddedByUserUserName</p>
+                                    <p class="small text-muted">Date created - <time datetime="@Model.WebEminarCreatedOn.ToString("O")">@Model.WebEminarCreatedOn.ToString("g")</time></p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h2>Коментар</h2>
+                        <hr />
+
+                        <p>Created by: @Model.ApplicationUserUserName</p>
+                        <p>Date created: <time datetime="@Model.CreatedOn.ToString("O")">@Model.CreatedOn.ToString("g")</time></p>
+                        <hr />
+
+                        <form asp-action="Edit" method="post">
+                            <div class="form-group">
+                                <input asp-for="WebEminarId" type="hidden" />
+                                <input asp-for="ApplicationUserId" type="hidden" />
+                                <input asp-for="Id" type="hidden" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Content" class="control-label"></label>
+                                <textarea asp-for="Content" class="form-control edit-with-tinymce"></textarea>
+                                <span asp-validation-for="Content" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CreatedOn" class="control-label"></label>
+                                <input asp-for="CreatedOn" class="form-control" id="datepicker" type="text" />
+                                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="IsDeleted" />
+                                    @Html.DisplayNameFor(model => model.IsDeleted)
+                                </label>
+                            </div>
+                            <hr />
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-sm btn-outline-success float-right" />
+                                <a asp-action="Index" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+            @section Scripts {
+                <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+                <script src="https://unpkg.com/plyr@3"></script>
+                <script>
+    const player = new Plyr('#player');
+                    window.player = player;</script>
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
+

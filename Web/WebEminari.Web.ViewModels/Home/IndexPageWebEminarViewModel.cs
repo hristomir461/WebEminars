@@ -34,7 +34,7 @@ namespace WebEminari.Web.ViewModels.Home
         public string VideoId => GlobalMethods.GetYouTubeVideoIdFromUrl(this.Video);
         public string VideoUrl => $"https://www.youtube.com/embed/{this.VideoId}";
 
-        public string ThumbnailUrl => $"https://i.ytimg.com/vi/{this.VideoId}/mqdefault.jpg";
+        public string ThumbnailUrl => $"https://i.ytimg.com/vi/{this.VideoId}/maxresdefault.jpg";
 
         public void CreateMappings(IProfileExpression configuration)
         {

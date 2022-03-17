@@ -592,3 +592,15 @@ D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administr
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\WebEminars\LikedByMe.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Reports\IndexComments.cshtml.g.cs
 D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Reports\IndexWebEminars.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Organization\All.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Organization\ByMe.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Organization\Create.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Organization\Edit.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Organization\Joined.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Organization\View.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Organizations\Edit.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\Organizations\Index.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Areas\Administration\Views\_AdminLayout.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Comments\WebEminarsComments.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_AdminNav.cshtml.g.cs
+D:\Projects\WebEminars\Web\WebEminari.Web\obj\Debug\net5.0\Razor\Views\Shared\_UserAdminNav.cshtml.g.cs

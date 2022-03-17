@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebEminari.Web.ViewModels.Reports.Comments.CommentReportViewModel>
+@{ ViewData["Title"] = "Comments reported by me"; }
+
+<div class="container">
+    <div class="row">
+        @foreach (var report in Model)
+        {
+<div class="col-lg-4 pb-3">
+    <div class="card">
+        <div class="card-body text-center">
+            <h5 class="card-title">Comment details</h5>
+            <hr />
+            <div class="card-text">
+                <h5>@report.CommentContent</h5>
+
+                <div>
+                    <small class="text-muted">Created by - @report.CommentApplicationUserUserName</small>
+                </div>
+                <div>
+                    <small class="text-muted">Date created - <time datetime="@report.CommentCreatedOn.ToString("O")">@report.CommentCreatedOn.ToString("g")</time></small>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@report.WebEminarId" class="btn btn-sm btn-outline-dark mb-1">
+                    <i class="fas fa-info"></i> Details
+                </a>
+            </div>
+        </div>
+        <div class="card-body text-center">
+            <h5>Report details</h5>
+            <hr />
+            <div class="form-group">
+                <label asp-for="@report.Subject"></label>
+                <h6 class="card-title">@report.Subject</h6>
+            </div>
+            <div class="form-group">
+                <label asp-for="@report.ReportDescription"></label>
+                <h6 class="card-text">@report.ReportDescription</h6>
+            </div>
+            <div class="form-group">
+                <label asp-for="@report.CreatedOn">Date created</label>
+                <h6 class="card-text"><time datetime="@report.CreatedOn.ToString("O")">@report.CreatedOn.ToString("g")</time></h6>
+            </div>
+            <a asp-controller="Report" asp-action="CommentEdit" asp-route-reportid="@report.ReportId" class="btn btn-sm btn-outline-success mb-2">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a asp-controller="Report" asp-action="CommentDelete" asp-route-reportid="@report.ReportId" class="btn btn-sm btn-outline-danger mb-2">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
+    </div>
+</div>}
+    </div>
+    @if (!Model.Any())
+    {
+<h3 class="text-center">You don't have any reports to comments yet.</h3>
+                <hr />}
+    @if (this.User.IsInRole("Administrator"))
+    {
+<a class="btn btn-primary" asp-area="Administration" asp-controller="Reports" asp-action="IndexComments">Back to admin</a> }
+            else
+            {
+<a class="btn btn-primary" asp-action="CommentsReports">Back to admin</a>}
+</div>

@@ -1,5 +1,10 @@
 ﻿@using WebEminari.Web
 @using WebEminari.Web.ViewModels
 @using WebEminari.Web.ViewModels.HelperModels
+@using WebEminari.Web.ViewModels.Organizations
+@using System.Security.Claims
+@using WebEminari.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> userManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, WebEminari.Web

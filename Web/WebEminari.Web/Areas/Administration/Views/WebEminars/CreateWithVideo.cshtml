@@ -5,52 +5,55 @@
     var categoryItems = this.Model.CategoriesItems.Select(x => new SelectListItem(x.Value, x.Key));
 }
 
-<h1>Create</h1>
+<div class="container-fluid">
 
-<h4>WebEminarViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateWithVideo">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Video" class="control-label"></label>
-                <input asp-for="Video" class="form-control" />
-                <span asp-validation-for="Video" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" id="myEditor"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="categoryItems"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="CreateWithVideo" class="btn btn-primary" />
-            </div>
-        </form>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Уеб Семинар</h6>
+        </div>
+        <div class="card-body">
+            <h1>Create</h1>
+            <hr />
+            <form asp-action="CreateWithVideo">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Заглавие</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">YouTube връзка към клипът</label>
+                    <input asp-for="Video" class="form-control" />
+                    <span asp-validation-for="Video" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Описание</label>
+                    <textarea asp-for="Description" id="myEditor"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Категория</label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="categoryItems"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-outline-success float-right" type="submit" name="submit" value="Submit" />
+                    <a asp-action="IndexWebEminarsWithVideos" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-@section Scripts{
-    <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        tinymce.init({
-            selector: "#myEditor",
-            plugins: [
-                "image paste table link code media"
-            ]
-        });
-    </script>
-}
+    @section Scripts{
+        <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            tinymce.init({
+                selector: "#myEditor",
+                plugins: [
+                    "image paste table link code media"
+                ]
+            });
+        </script>
+    }

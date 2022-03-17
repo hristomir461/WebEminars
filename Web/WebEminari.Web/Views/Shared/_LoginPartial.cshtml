@@ -9,7 +9,7 @@
       rel="stylesheet">
 <div class="topbar">
     <ul class="navbar-nav ml-auto">
-        @if (this.SignInManager.IsSignedIn(this.User))
+        @if (this.User.Identity.IsAuthenticated)
         {
 
             <!-- Nav Item - User Information -->
@@ -25,19 +25,23 @@
                      aria-labelledby="userDropdown">
                     <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
+                        Профил
                     </a>
                     <a class="dropdown-item" asp-area="" asp-controller="Comments" asp-action="MyComments">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                        My Comments
+                        <i class="fas fa-comment fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Мой коментари
                     </a>
                     <a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="WebEminarReportsCreatedByMe">
-                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                        My Webinars Reports
+                        <i class="fas fa-flag-checkered fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Мой репорти на уебинари
                     </a>
                     <a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="CommentReportsCreatedByMe">
-                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                        My Comments Reports
+                        <i class="fas fa-flag-checkered fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Мой репорти на коментари
+                    </a>
+                    <a class="dropdown-item" asp-area="" asp-controller="WebEminars" asp-action="LikedByMe">
+                        <i class="fas fa-heart fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Харесани уебинари
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -67,12 +71,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Опитвате се да излезете ?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Сигурни ли сте, че искате да напуснете профилът си?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">

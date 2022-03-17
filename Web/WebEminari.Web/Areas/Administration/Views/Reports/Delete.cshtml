@@ -1,0 +1,78 @@
+﻿@model WebEminari.Web.ViewModels.Administration.Report.AdminReportDeleteModel
+@{
+    ViewData["Title"] = "Delete a report";
+}
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Delete</h6>
+        </div>
+
+        <div class="card-body">
+
+            <h4>Репорт</h4>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-3 col-md-6 text-center">
+                        <div>
+                            <h4>Потребител</h4>
+                            <hr />
+                            <p><strong>Email:</strong> @Model.ApplicationUserEmail</p>
+                        </div>
+                        <hr />
+                        <div>
+                            @if (Model.WebEminarId != null)
+                            {
+                <h4>Уеб семинар</h4>
+                                <hr />
+                                                <p><strong>Name:</strong> @Model.WebEminarTitle</p>
+                                                                <p><strong>Description:</strong> @Html.Raw(Model.WebEminarDescription)</p>
+
+                                                                                <a asp-area="" asp-controller="WebEminars" asp-action="Details" asp-route-id="@Model.WebEminarId" class="btn btn-sm btn-outline-secondary mt-2 mb-1">
+                                                                                    Details
+                                                                                </a>}
+                            @if (Model.CommentId != null)
+                            {
+                <h4>Коментар</h4>
+                                <hr />
+                                                <p>
+                                                    <strong>Content:</strong>
+                                                    @Html.Raw(Model.CommentContent)
+                                                </p>}
+                        </div>
+
+                        <hr />
+                        <h4>Репорт</h4>
+                        <hr />
+                        <p><strong>Subject:</strong> @Model.Subject</p>
+                        <p><strong>Description:</strong> @Model.Description</p>
+                        <p><strong>Date created:</strong> <time datetime="@Model.CreatedOn.ToString("O")">@Model.CreatedOn.ToString("g")</time></p>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsDeleted" disabled /> @Html.DisplayNameFor(model => model.IsDeleted)
+                            </label>
+                        </div>
+
+                        <form asp-action="Delete">
+                            <input asp-for="Id" type="hidden" />
+
+                            <div class="form-group">
+                                <input type="submit" value="Delete" class="btn btn-sm btn-outline-danger float-right" />
+                                @if (Model.CommentId != null)
+                                {
+                            <a asp-action="IndexComments" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a> }
+                                        else
+                                        {
+                                            <a asp-action="IndexWebEminars" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a>
+                                        }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+       </div>
+</div>
+</div>

@@ -1,15 +1,51 @@
 ﻿@model IEnumerable<WebEminari.Data.Models.UserBooking>
-@{
-}
-@if (Model.Any() == true)
-{
-    foreach (var user in Model)
-    {
-<p>@user.UserFirstName @user.UserLastName</p>
-    }
-            }
-            else
-            {
-                <p>No peoples</p>
-            }
+<!-- End of Topbar -->
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Записали се хора</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            @if (Model.Any() == true)
+                            {
+                                <th>Created On</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                            }
+                            else
+                            {
+                                <th>People</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @if (Model.Any() == true)
+                            {
+                                foreach (var user in Model)
+                                {
+                                    <td><time datetime="@user.CreatedOn.ToString("O")">@user.CreatedOn.ToString("g")</time></td>
+                                    <td>@user.UserFirstName @user.UserLastName</td>
+                                    <td>@user.UserEmail</td>
+                                }
+                            }
+                            else
+                            {
+                                <td>No peoples</td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

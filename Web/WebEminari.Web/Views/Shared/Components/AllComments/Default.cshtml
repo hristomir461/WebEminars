@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebEminari.Web.ViewModels.Comments.CommentViewModel>
+
+<style>
+    .comment-img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .comment-replies .comment-img {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+</style>
+<div class="bg-white rounded-3 shadow-sm p-4">
+
+    <h4 class="mb-4">@Model.Count() Comments</h4>
+    @foreach (var item in Model.Where(x => x.ParentId == null))
+    {
+<div class="py-3">
+    <div class="d-flex comment">
+        <img class="rounded-circle comment-img"
+             src="~/ProfileImages/@item.ApplicationUserImagePath" />
+        <div class="flex-grow-1 ms-3">
+            <div class="mb-1"><a href="#" class="fw-bold link-dark me-1">@item.ApplicationUserUserName</a> <span class="text-muted text-nowrap"><small class="text-muted"><time datetime="@item.CreatedOn.ToString("O")">@item.CreatedOn.ToString("g")</time></small></span></div>
+            <div class="mb-2">@item.Content</div>
+            <div class="hstack align-items-center mb-2">
+                @if (User.Identity?.Name == item.ApplicationUserUserName)
+                {
+        <a class="btn btn-sm btn-danger text-uppercase" asp-controller="Comments" asp-action="Delete" asp-route-id="@item.Id">DELETE</a>
+        <a class="btn btn-sm btn-warning text-uppercase ms-3" asp-controller="Comments" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                }
+                 else
+                 {
+                  <a class="btn btn-sm btn-warning text-uppercase" asp-controller="Report" asp-action="Comment" asp-route-id="@item.Id">Report</a>
+                 }
+            </div>
+            <div onclick="Reply(event, @item.Id, @item.WebEminarId)">
+                <form id="replyForm" asp-controller="Comments" asp-action="Create">
+                    <input id="webEminarId" name="WebEminarId" value="0" type="hidden" />
+                    <input id="parentId" type="hidden" name="ParentId" value="0" />
+                    <textarea placeholder="Write your reply here" class="form-control" id="content" name="Content"></textarea>
+                    <button class="btn btn-info" style="float: right; margin-top: 10px">Reply</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+                @foreach (var reply in Model.Where(x => x.ParentId == item.Id))
+                {
+<div class="comment-replies mt-4 bg-light p-3 rounded">
+    <div class="d-flex py-2">
+        <img class="rounded-circle comment-img"
+             src="~/ProfileImages/@reply.ApplicationUserImagePath" />
+        <div class="flex-grow-1 ms-3">
+            <div class="mb-1"><a href="#" class="fw-bold link-dark pe-1">@reply.ApplicationUserUserName</a> <span class="text-muted text-nowrap"> <small class="text-muted"><time datetime="@reply.CreatedOn.ToString("O")">@reply.CreatedOn.ToString("g")</time></small></span></div>
+            <div class="mb-2">@reply.Content</div>
+            <div class="hstack align-items-center">
+                @if (User.Identity?.Name == reply.ApplicationUserUserName)
+                {
+            <a class="btn btn-sm btn-danger text-uppercase" asp-controller="Comments" asp-action="Delete" asp-route-id="@reply.Id">DELETE</a>
+             <a class="btn btn-sm btn-warning text-uppercase ms-3" asp-controller="Comments" asp-action="Edit" asp-route-id="@reply.Id">Edit</a> 
+             }
+                 else
+                 {
+                 <a class="btn btn-sm btn-warning text-uppercase" asp-controller="Report" asp-action="Comment" asp-route-id="@item.Id">Report</a>
+                 }
+            </div>
+        </div>
+    </div>
+</div>        }
+                               
+                                         
+<hr />
+}
+    </div>
+
+
+
+    <script>
+        function Reply(event, parentid, webeminarid) {
+            let parentId = event.currentTarget.querySelector('#parentId');
+            let webeminarId = event.currentTarget.querySelector('#webEminarId');
+            parentId.value = parentid;
+            webeminarId.value = webeminarid;
+        }
+
+    </script>
+

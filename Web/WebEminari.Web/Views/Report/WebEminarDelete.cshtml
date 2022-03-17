@@ -1,0 +1,56 @@
+﻿@model WebEminarReportDeleteModel
+@{ ViewData["Title"] = "Deleting report #" + Model.ReportId; }
+
+<div class="container">
+    <div class="text-center">
+        <h3>Сигурен ли сте, че искате да го изтриете ?</h3>
+        <hr />
+        <form asp-controller="Report" asp-action="WebEminarDelete" method="post">
+            <input type="hidden" value="@Model.ReportId" asp-for="@Model.ReportId" class="form-control" />
+            <input type="hidden" value="@Model.ApplicationUserId" asp-for="@Model.ApplicationUserId" class="form-control" />
+            <div class="mb-3">
+                <p>Причина: </p>
+                <p>@Model.Subject</p>
+            </div>
+            <div class="mb-3">
+                <p>Описание: </p>
+                <p>@Model.ReportDescription</p>
+            </div>
+            <div class="mb-3">
+                <p>Date created: </p>
+                <p><time datetime="@Model.CreatedOn.ToString("O")">@Model.CreatedOn.ToString("g")</time></p>
+            </div>
+            <div class="mb-3">
+                <input type="submit" name="submit" value="Delete" class="btn btn-sm btn-outline-danger" />
+                <a asp-controller="Report" asp-action="CommentReportsCreatedByMe" class="btn btn-sm btn-outline-dark">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="card mb-3 card-style-80-rem">
+        <div class="card-body">
+            <h5 class="card-title">@Model.WebEminarTitle</h5>
+            <hr />
+            <p class="card-text mb-3">
+          
+                <small class="text-muted">Created by - @Model.WebEminarAddedByUserUserName </small>
+                <small class="text-muted">Category - @Model.WebEminarCategoryName | </small>
+                <small class="text-muted">
+                    Date created -
+                    <time datetime="@Model.WebEminarCreatedOn.ToString("O")">@Model.WebEminarCreatedOn.ToString("g")</time>
+                </small>
+            </p>
+            <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@Model.WebEminarId" class="btn btn-sm btn-outline-dark">
+                <i class="fas fa-info"></i> Details
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+    <script src="https://unpkg.com/plyr@3"></script>
+    <script>const player = new Plyr('#player');
+        window.player = player;</script>
+}

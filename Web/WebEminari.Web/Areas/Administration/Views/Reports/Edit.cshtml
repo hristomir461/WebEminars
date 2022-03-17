@@ -1,0 +1,91 @@
+﻿@model WebEminari.Web.ViewModels.Administration.Report.AdminReportEditModel
+@{ ViewData["Title"] = "Edit a report"; }
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Edit</h6>
+        </div>
+
+        <div class="card-body">
+
+            <h4>Репорт</h4>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-3 col-md-6 text-center">
+
+                        <div>
+                            <h4>Потребител</h4>
+                            <hr />
+                            <p>
+                                <strong>Email:</strong> @Model.ApplicationUserEmail
+                            </p>
+                        </div>
+                        <hr />
+                        <div>
+                            @if (Model.WebEminarId != null)
+                            {
+                <h4>Уеб семинарът</h4>
+                                <hr />
+
+                                                <p>
+                                                    <strong>Name:</strong> @Model.WebEminarTitle
+                                                </p>
+                                                                <p>
+                                                                    <strong>Description:</strong> @Html.Raw(Model.WebEminarDescription)
+                                                                </p>
+
+                                                                                <a asp-area="" asp-controller="WebEminars" asp-action="Details" asp-route-id="@Model.WebEminarId" class="btn btn-sm btn-outline-secondary mt-2 mb-1">
+                                                                                    Details
+                                                                                </a>}
+                            @if (Model.CommentId != null)
+                            {
+                <h4>Коментар</h4>
+                                <hr />
+                                                <p>
+                                                    <strong>Content:</strong> @Model.CommentContent
+                                                </p>}
+                        </div>
+
+                        <hr />
+                        <form asp-action="Edit">
+                            <div class="form-group">
+                                <label asp-for="Subject" class="control-label"></label>
+                                <input asp-for="Subject" class="form-control" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <input asp-for="Description" class="form-control" />
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CreatedOn" class="control-label"></label>
+                                <input asp-for="CreatedOn" class="form-control" id="datepicker" type="text" />
+                                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                                </label>
+                            </div>
+                            <input asp-for="Id" type="hidden" />
+                            <input asp-for="CommentId" type="hidden" />
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-sm btn-outline-success float-right" />
+                                @if (Model.CommentId != null)
+                                {
+                        <a asp-action="IndexComments" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a> }
+                                    else
+                                    {
+                                        <a asp-action="IndexWebEminars" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a>
+                                    }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>

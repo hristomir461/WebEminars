@@ -4,45 +4,44 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Details</h6>
+        </div>
 
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsDeleted)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DeletedOn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DeletedOn)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifiedOn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifiedOn)
-        </dd>
-    </dl>
+        <div class="card-body">
+
+            <h4>Категория</h4>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-3 col-md-6 text-center">
+                        @Html.DisplayNameFor(model => model.Name)
+                        <br />
+                        @Html.DisplayFor(model => model.Name)
+                        <br />
+                        @Html.DisplayNameFor(model => model.IsDeleted)
+                        <br />
+                        @Html.DisplayFor(model => model.IsDeleted)
+                        <br />
+                        @Html.DisplayNameFor(model => model.DeletedOn)
+                        <br />
+                        @Html.DisplayFor(model => model.DeletedOn)
+                        <br />
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                        <br />
+                        @Html.DisplayFor(model => model.CreatedOn)
+                        <br />
+                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                        <br />
+                        @Html.DisplayFor(model => model.ModifiedOn)
+                    <br />
+              
+                        <a asp-action="Index" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-arrow-left"></i> Back to all</a>
+               
+                    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+</div>
 </div>

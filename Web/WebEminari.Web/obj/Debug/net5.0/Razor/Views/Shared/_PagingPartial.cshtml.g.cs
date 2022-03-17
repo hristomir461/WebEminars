@@ -75,8 +75,29 @@ using WebEminari.Web.ViewModels.Administration.Report;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.Organizations;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using WebEminari.Web.ViewModels.Comments;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\_ViewImports.cshtml"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0adaaadb5f729461b02165363d855060f49872c8", @"/Views/Shared/_PagingPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"72d41446240f96ac72ec82e6c5039fec6e273a4f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"edf2788d1feffe69274e31855e28ee954f5c7826", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__PagingPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PagingViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("page-link"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -131,7 +152,7 @@ using WebEminari.Web.ViewModels.Administration.Report;
             ), 131, 52, false);
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c86486", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c87055", async() => {
                 WriteLiteral("&laquo;");
             }
             );
@@ -178,7 +199,7 @@ using WebEminari.Web.ViewModels.Administration.Report;
             ), 311, 52, false);
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c89264", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c89833", async() => {
                 WriteLiteral("&lsaquo;");
             }
             );
@@ -228,7 +249,7 @@ using WebEminari.Web.ViewModels.Administration.Report;
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c812065", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c812634", async() => {
 #nullable restore
 #line 15 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\Shared\_PagingPartial.cshtml"
                                                                                          Write(i);
@@ -301,7 +322,7 @@ using WebEminari.Web.ViewModels.Administration.Report;
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c815741", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c816310", async() => {
 #nullable restore
 #line 28 "D:\Projects\WebEminars\Web\WebEminari.Web\Views\Shared\_PagingPartial.cshtml"
                                                                                          Write(i);
@@ -372,7 +393,7 @@ using WebEminari.Web.ViewModels.Administration.Report;
             ), 1252, 48, false);
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c819453", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c820022", async() => {
                 WriteLiteral("&rsaquo;");
             }
             );
@@ -428,7 +449,7 @@ using WebEminari.Web.ViewModels.Administration.Report;
             ), 1449, 48, false);
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c822740", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0adaaadb5f729461b02165363d855060f49872c823309", async() => {
                 WriteLiteral("&raquo;");
             }
             );

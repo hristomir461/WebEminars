@@ -23,6 +23,8 @@ namespace WebEminari.Data.Models
             this.Likes = new HashSet<Like>();
             this.Reports = new HashSet<Report>();
             this.WebEminars = new HashSet<WebEminar>();
+            this.Organizations = new HashSet<Organization>();
+            this.CreatedOrganizations = new HashSet<Organization>();
         }
         public string FirstName { get; set; }
 
@@ -58,5 +60,9 @@ namespace WebEminari.Data.Models
         public ICollection<Report> Reports { get; set; }
 
         public ICollection<WebEminar> WebEminars { get; set; }
+
+        public IEnumerable<Organization> CreatedOrganizations { get; set; }
+
+        public IEnumerable<Organization> Organizations { get; set; }
     }
 }

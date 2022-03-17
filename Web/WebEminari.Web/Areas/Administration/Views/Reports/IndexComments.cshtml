@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebEminari.Web.ViewModels.Administration.Report.AdminReportViewModel>
+@{ ViewData["Title"] = "Reports administration"; }
+
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Репорти на коментари</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Description</th>
+                                            <th>Created by user</th>
+                                            <th>WebEminar details</th>
+                                            <th>Comment content</th>
+                                            <th>Date created</th>
+                                            <th>Is deleted</th>
+                                            <th>Navigate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in this.Model)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Subject)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @item.ApplicationUserUserName
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.WebEminarTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CommentContent)
+                                            </td>
+                                            <td>
+                                                <time datetime="@item.CreatedOn.ToString("O")">@item.CreatedOn.ToString("g")</time>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IsDeleted)
+                                            </td>
+                                            <td>
+                                                <a asp-area="" asp-controller="WebEminars" asp-action="Details" asp-route-id="@item.WebEminarId" class="btn btn-sm btn-outline-secondary mb-1">Details</a>
+                                                <a asp-area="Administration" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-success mb-1">Edit / Soft delete</a>
+                                                <a asp-area="Administration" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger mb-1">Hard delete (Irreversible)</a>
+                                            </td>
+                                        </tr>}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>

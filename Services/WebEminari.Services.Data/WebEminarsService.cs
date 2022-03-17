@@ -228,7 +228,7 @@ namespace WebEminari.Services.Data
                 throw new ApplicationException("Not enough room");
             }
             eventFd.MaxPeople--;
-            eventFd.UserBookings.Add(new UserBooking(user.Id, eventId, user.FirstName, user.LastName));
+            eventFd.UserBookings.Add(new UserBooking(user.Id, eventId, user.FirstName, user.LastName, user.Email));
             await this.webEminarRepository.SaveChangesAsync();
         }
 

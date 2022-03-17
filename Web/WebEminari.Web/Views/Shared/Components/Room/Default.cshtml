@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Chat>
+
+<div>
+    @foreach (Chat chat in Model)
+    {
+<a class="room-button" asp-controller="Chat" asp-action="Joined" asp-route-id="@chat.Id">
+    <div class="friend-drawer friend-drawer--onhover">
+        <img class="profile-image"
+             src="https://images-na.ssl-images-amazon.com/images/I/51nY87iE6hL.png"
+             alt="chat-image">
+
+        <div class="text">
+            <h6 class="room-button-title">@chat.Name</h6>
+        </div>
+    </div>
+</a>
+
+                <hr>}
+    @if (!Model.Any())
+    {
+<div class="friend-drawer friend-drawer--onhover">
+    <h6>We don't have any group chats yet.</h6>
+</div>}
+</div>
+
+@section Styles {
+    <link href="@Url.Content("~/css/chat-style.css")" rel="stylesheet" type="text/css" />
+}

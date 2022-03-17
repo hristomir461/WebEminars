@@ -1,0 +1,67 @@
+﻿@model WebEminarReportEditModel
+@{ ViewData["Title"] = "Editing report #" + Model.ReportId; }
+
+<div class="container">
+    <div class="card-deck">
+        <div class="row">
+            <div style="margin: 20px" class="card mb-3 card-style-20-rem">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Model.WebEminarTitle</h5>
+                    <hr />
+                    <div class="card-text">
+                        @{ var createdBy = Model.WebEminarApplicationUserUserName ?? "Deleted User"; }
+                        <div>
+                            <small class="text-muted">Created by - @createdBy</small>
+                        </div>
+                        <div>
+                            <small class="text-muted">Category - @Model.WebEminarCategoryName</small>
+                        </div>
+                        <div>
+                            <small class="text-muted">
+                                Date created -
+                                <time datetime="@Model.WebEminarCreatedOn.ToString("O")">@Model.WebEminarCreatedOn.ToString("g")</time>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a asp-controller="WebEminars" asp-action="Details" asp-route-id="@Model.WebEminarId" class="btn btn-sm btn-outline-dark">
+                            <i class="fas fa-info"></i> Details
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-body text-center">
+                    <h5>Репорт</h5>
+                    <hr />
+                    <form asp-controller="Report" asp-action="WebEminarEdit" method="post">
+                        <input type="hidden" value="@Model.ReportId" asp-for="@Model.ReportId" class="form-control" />
+                        <input type="hidden" value="@Model.ApplicationUserId" asp-for="@Model.ApplicationUserId" class="form-control" />
+                        <div class="form-group">
+                            <label asp-for="@Model.Subject"></label>
+                            <input asp-for="@Model.Subject" class="form-control" />
+                            <span asp-validation-for="@Model.Subject" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.ReportDescription"></label>
+                            <input asp-for="@Model.ReportDescription" class="form-control" />
+                            <span asp-validation-for="@Model.ReportDescription" class="text-danger"></span>
+                        </div>
+                        <input type="submit" name="submit" value="Save" class="btn btn-sm btn-outline-success" />
+
+                        @* <a asp-controller="Report" asp-action="ByMe" class="btn btn-sm btn-outline-dark"> *@
+                        <a asp-controller="Report" asp-action="WebEminarReportsCreatedByMe" class="btn btn-sm btn-outline-dark">
+                            Cancel
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+    <script src="https://unpkg.com/plyr@3"></script>
+    <script>const player = new Plyr('#player');
+        window.player = player;</script>
+}

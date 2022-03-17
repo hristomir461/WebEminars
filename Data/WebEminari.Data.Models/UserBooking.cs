@@ -17,16 +17,19 @@ namespace WebEminari.Data.Models
     {
         public UserBooking()
         { }
-        public UserBooking(string userId, int webEminarId, string userFirstName, string userLastName)
+        public UserBooking(string userId, int webEminarId, string userFirstName, string userLastName, string userEmail)
         {
             UserId = userId;
             UserFirstName = userFirstName;
             UserLastName = userLastName;
+            UserEmail = userEmail;
             WebEminarId = webEminarId;
         }
         public string UserId { get; set; }
 
         public string UserFirstName { get; set; }
+
+        public string UserEmail { get; set; }
 
         public string UserLastName { get; set; }
 

@@ -16,8 +16,8 @@
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            await SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName);
-            // await SeedAdmin(userManager, GlobalConstants.AdministratorRoleName); 
+            //await SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName);
+            //await SeedAdmin(userManager, GlobalConstants.AdministratorRoleName); 
         }
 
         private static async Task SeedRoleAsync(RoleManager<ApplicationRole> roleManager, string roleName)
@@ -36,6 +36,7 @@
         {
             var user = new ApplicationUser
             {
+                Id = "ec6406bf-06bd-414a-8dd2-c3418336f631",
                 UserName = "Admin@email.com",
                 NormalizedUserName = "admin@email.com",
                 Email = "Admin@email.com",
@@ -43,7 +44,7 @@
                 EmailConfirmed = true,
                 FirstName = "Admin",
                 LastName = "Adminov",
-                ImagePath = "images.jpg",
+                ImagePath = "274230082_1054205055138382_3138966343028686373_n-modified.png",
             };
 
             await userManager.CreateAsync(user, "123456");

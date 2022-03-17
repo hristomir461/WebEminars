@@ -52,7 +52,7 @@
 
             services.AddDefaultIdentity<ApplicationUser>(options => 
             {
-                options.SignIn.RequireConfirmedAccount = true;
+                options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequiredLength = 6;
@@ -107,6 +107,7 @@
             services.AddTransient<ILikesService, LikesService>();
             services.AddTransient<IInformationService, InformationService>();
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IOrganizationsService, OrganizationsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

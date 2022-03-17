@@ -1,0 +1,46 @@
+﻿@using WebEminari.Common
+
+
+
+<div class="topbar ml-auto">
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="WebEminars" asp-action="All">Всички уебинари</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Chat" asp-action="Joined" asp-route-id="1">Чат</a>
+        </li>
+        <li class="nav-item dropdown">
+            <div class="dropdown">
+                <a class="btn nav-link text-dark dropdown-toggle" id="organizationDropdownMenuButton"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Организации
+                </a>
+                <div class="dropdown-menu" aria-labelledby="organizationDropdownMenuButton">
+                    <a class="dropdown-item" asp-area="" asp-controller="Organization" asp-action="All">
+                        Всички
+                    </a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Organization" asp-action="Create">
+                        Създай
+                    </a>
+                </div>
+            </div>
+        </li>
+        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Administration" asp-controller="WebEminars" asp-action="Index">Админ табло</a>
+            </li>
+        }
+        else if (this.User.Identity.IsAuthenticated)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="WebEminars" asp-action="Index">Моето табло</a>
+            </li>
+        }
+    </ul>
+</div>
+        <partial name="_LoginPartial" />

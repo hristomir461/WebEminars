@@ -44,7 +44,10 @@
         public virtual DbSet<Message> Messages { get; set; }
 
         public virtual DbSet<ChatApplicationUser> ChatApplicationUsers { get; set; }
+
         public virtual DbSet<Like> Likes { get; set; }
+
+        public virtual DbSet<Organization> Organizations { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
